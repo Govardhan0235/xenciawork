@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frameworkfe
+  labels:
+    app: frameworkfe
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: frameworkfe
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25% 
+  template:
+    metadata:
+      labels:
+        app: frameworkfe
+    spec:
+      containers:
+      - name: framework
+        image: {{ .Values.imageRepository }}:{{ .Values.imageTag }}
+        ports:
+          - containerPort: 80
+        resources:
+          requests:
+              cpu: 100m
+              memory: 300Mi
+        volumeMounts:
+          - mountPath: /framework
+            name: framework-volume
+      volumes:
+      - name: framework-volume
+        emptyDir: {}       
+

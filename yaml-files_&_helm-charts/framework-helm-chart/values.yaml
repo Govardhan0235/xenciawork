@@ -1,0 +1,5 @@
+# Template for registry-ui application. Empty values must be defined with overrides
+replicaCount: 1
+
+imageRepository: kredoaks.azurecr.io/framework-lenskart
+imageTag: 891

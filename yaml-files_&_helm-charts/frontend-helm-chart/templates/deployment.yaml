@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kredoappfe
+  labels:
+    app: kredoappfe
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: kredoappfe
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25% 
+  template:
+    metadata:
+      labels:
+        app: kredoappfe
+    spec:
+      containers:
+      - name: kredoapp
+        image: {{ .Values.imageRepository }}:{{ .Values.imageTag }}
+        ports:
+          - containerPort: 4000
+        resources:
+          requests:
+              cpu: 200m
+              memory: 300Mi
+        volumeMounts:
+          - mountPath: /kredoapp
+            name: kredoapp-volume
+      volumes:
+      - name: kredoapp-volume
+        emptyDir: {}      

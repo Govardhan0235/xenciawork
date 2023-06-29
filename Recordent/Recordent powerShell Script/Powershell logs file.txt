@@ -1,0 +1,1581 @@
+2022-12-06T17:37:14.0197565Z ##[section]Starting: Azure PowerShell script: FilePath
+2022-12-06T17:37:14.0206178Z ==============================================================================
+2022-12-06T17:37:14.0206518Z Task         : Azure PowerShell
+2022-12-06T17:37:14.0206840Z Description  : Run a PowerShell script within an Azure environment
+2022-12-06T17:37:14.0207118Z Version      : 5.209.0
+2022-12-06T17:37:14.0207352Z Author       : Microsoft Corporation
+2022-12-06T17:37:14.0207681Z Help         : https://aka.ms/azurepowershelltroubleshooting
+2022-12-06T17:37:14.0208058Z ==============================================================================
+2022-12-06T17:37:14.2277967Z Generating script.
+2022-12-06T17:37:14.2280386Z Formatted command: . '/home/vsts/work/1/s/Recordent_DR/Powershell/App service Retore.ps1'
+2022-12-06T17:37:14.2313633Z [command]/usr/bin/pwsh -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command . '/home/vsts/work/_temp/d6d6e00f-117f-4d0b-bec9-bacc4e6e2896.ps1'
+2022-12-06T17:37:14.2376710Z Saved!
+2022-12-06T17:37:16.3007129Z ##[command]Import-Module -Name /usr/share/az_7.5.0/Az.Accounts/2.9.1/Az.Accounts.psd1 -Global
+2022-12-06T17:37:17.2508009Z ##[command]Clear-AzContext -Scope Process
+2022-12-06T17:37:18.1816541Z ##[command]Clear-AzContext -Scope CurrentUser -Force -ErrorAction SilentlyContinue
+2022-12-06T17:37:19.3590009Z ##[command]Connect-AzAccount -ServicePrincipal -Tenant 1b82cd4b-d2c9-466a-8702-655b07322f05 -Credential System.Management.Automation.PSCredential -Environment AzureCloud @processScope
+2022-12-06T17:37:22.5554545Z ##[command] Set-AzContext -SubscriptionId c19de847-d482-4e21-b129-d20f7c168cf9 -TenantId 1b82cd4b-d2c9-466a-8702-655b07322f05
+2022-12-06T17:37:25.9369794Z [33;1mDEBUG: 17:37:25 - RestoreAzureWebAppSnapshot begin processing with ParameterSet 'FromResourceName'.[0m
+2022-12-06T17:37:25.9371532Z [33;1mDEBUG: 17:37:25 - using account id '***'...[0m
+2022-12-06T17:37:25.9372606Z [33;1mDEBUG: 17:37:25 - [ConfigManager] Got nothing from [DisplayBreakingChangeWarning], Module = [], Cmdlet = []. Returning default value [True].[0m
+2022-12-06T17:45:31.5288598Z [33;1mDEBUG: [Common.Authentication]: Authenticating using Account: '***', environment: 'AzureCloud', tenant: '1b82cd4b-d2c9-466a-8702-655b07322f05'[0m
+2022-12-06T17:45:31.5291340Z [33;1mDEBUG: 17:37:25 - [ServicePrincipalAuthenticator] Calling ClientSecretCredential.GetTokenAsync - ApplicationId:'***', TenantId:'1b82cd4b-d2c9-466a-8702-655b07322f05', Scopes:'https://management.core.windows.net//.default', AuthorityHost:'https://login.microsoftonline.com/'[0m
+2022-12-06T17:45:31.5293010Z [33;1mDEBUG: ClientSecretCredential.GetToken invoked. Scopes: [ https://management.core.windows.net//.default ] ParentRequestId: [0m
+2022-12-06T17:45:31.5294632Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:25.93 - c6a73243-9996-4536-8fb7-7752d3a08ea9] MSAL MSAL.NetCore with assembly version '4.39.0.0'. CorrelationId(c6a73243-9996-4536-8fb7-7752d3a08ea9)[0m
+2022-12-06T17:45:31.5296409Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:25.93 - c6a73243-9996-4536-8fb7-7752d3a08ea9] === AcquireTokenForClientParameters ===
+2022-12-06T17:45:31.5297471Z SendX5C: False
+2022-12-06T17:45:31.5298348Z ForceRefresh: False
+2022-12-06T17:45:31.5299255Z [0m
+2022-12-06T17:45:31.5300298Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:25.93 - c6a73243-9996-4536-8fb7-7752d3a08ea9] 
+2022-12-06T17:45:31.5301349Z === Request Data ===
+2022-12-06T17:45:31.5301824Z Authority Provided? - True
+2022-12-06T17:45:31.5302388Z Scopes - https://management.core.windows.net//.default
+2022-12-06T17:45:31.5302974Z Extra Query Params Keys (space separated) - 
+2022-12-06T17:45:31.5303476Z ApiId - AcquireTokenForClient
+2022-12-06T17:45:31.5303959Z IsConfidentialClient - True
+2022-12-06T17:45:31.5304582Z SendX5C - False
+2022-12-06T17:45:31.5304869Z LoginHint ? False
+2022-12-06T17:45:31.5305318Z IsBrokerConfigured - False
+2022-12-06T17:45:31.5305761Z HomeAccountId - False
+2022-12-06T17:45:31.5306326Z CorrelationId - c6a73243-9996-4536-8fb7-7752d3a08ea9
+2022-12-06T17:45:31.5306719Z UserAssertion set: False
+2022-12-06T17:45:31.5307098Z LongRunningOboCacheKey set: False
+2022-12-06T17:45:31.5307523Z [0m
+2022-12-06T17:45:31.5308674Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:25.93 - c6a73243-9996-4536-8fb7-7752d3a08ea9] === Token Acquisition (ClientCredentialRequest) started:
+2022-12-06T17:45:31.5316775Z 	 Scopes: https://management.core.windows.net//.default
+2022-12-06T17:45:31.5317595Z 	Authority Host: login.microsoftonline.com[0m
+2022-12-06T17:45:31.5318706Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:25.93 - c6a73243-9996-4536-8fb7-7752d3a08ea9] [Region discovery] Not using a regional authority. [0m
+2022-12-06T17:45:31.5319905Z [33;1mDEBUG: Request [05df7dd8-88d3-4574-864c-7476b0ff4c19] POST https://login.microsoftonline.com/1b82cd4b-d2c9-466a-8702-655b07322f05/oauth2/v2.0/token
+2022-12-06T17:45:31.5320531Z x-client-SKU:REDACTED
+2022-12-06T17:45:31.5320946Z x-client-Ver:REDACTED
+2022-12-06T17:45:31.5321351Z x-client-OS:REDACTED
+2022-12-06T17:45:31.5321786Z x-client-current-telemetry:REDACTED
+2022-12-06T17:45:31.5322263Z x-client-last-telemetry:REDACTED
+2022-12-06T17:45:31.5322699Z x-ms-PKeyAuth:REDACTED
+2022-12-06T17:45:31.5323116Z x-ms-lib-capability:REDACTED
+2022-12-06T17:45:31.5323553Z client-request-id:REDACTED
+2022-12-06T17:45:31.5323994Z return-client-request-id:REDACTED
+2022-12-06T17:45:31.5324423Z x-app-name:REDACTED
+2022-12-06T17:45:31.5324816Z x-app-ver:REDACTED
+2022-12-06T17:45:31.5325324Z x-ms-client-request-id:05df7dd8-88d3-4574-864c-7476b0ff4c19
+2022-12-06T17:45:31.5325854Z x-ms-return-client-request-id:true
+2022-12-06T17:45:31.5326592Z User-Agent:azsdk-net-Identity/1.6.0,(.NET 6.0.10; Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022)
+2022-12-06T17:45:31.5327248Z Content-Type:application/x-www-form-urlencoded
+2022-12-06T17:45:31.5327725Z client assembly: Azure.Identity[0m
+2022-12-06T17:45:31.5328306Z [33;1mDEBUG: Response [05df7dd8-88d3-4574-864c-7476b0ff4c19] 200 OK (00.2s)
+2022-12-06T17:45:31.5328813Z Cache-Control:no-store, no-cache
+2022-12-06T17:45:31.5329226Z Pragma:no-cache
+2022-12-06T17:45:31.5329658Z Strict-Transport-Security:REDACTED
+2022-12-06T17:45:31.5330108Z X-Content-Type-Options:REDACTED
+2022-12-06T17:45:31.5330406Z P3P:REDACTED
+2022-12-06T17:45:31.5330790Z client-request-id:REDACTED
+2022-12-06T17:45:31.5331307Z x-ms-request-id:12e76c46-8515-430d-8ba5-803ca6e27300
+2022-12-06T17:45:31.5331784Z x-ms-ests-server:REDACTED
+2022-12-06T17:45:31.5332191Z x-ms-clitelem:REDACTED
+2022-12-06T17:45:31.5332612Z X-XSS-Protection:REDACTED
+2022-12-06T17:45:31.5333023Z Set-Cookie:REDACTED
+2022-12-06T17:45:31.5333331Z Date:Tue, 06 Dec 2022 17:37:25 GMT
+2022-12-06T17:45:31.5333826Z Content-Type:application/json; charset=utf-8
+2022-12-06T17:45:31.5334230Z Expires:-1
+2022-12-06T17:45:31.5334615Z Content-Length:1379
+2022-12-06T17:45:31.5334967Z [0m
+2022-12-06T17:45:31.5336055Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] ScopeSet was missing from the token response, so using developer provided scopes in the result. [0m
+2022-12-06T17:45:31.5340124Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] Checking client info returned from the server..[0m
+2022-12-06T17:45:31.5341757Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] Saving token response to cache..[0m
+2022-12-06T17:45:31.5345490Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] ID Token not present in response. [0m
+2022-12-06T17:45:31.5347285Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] Cannot determine home account id - or id token or no client info and no subject [0m
+2022-12-06T17:45:31.5349000Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] Saving AT in cache and removing overlapping ATs...[0m
+2022-12-06T17:45:31.5350827Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] Looking for scopes for the authority in the cache which intersect with https://management.core.windows.net//.default[0m
+2022-12-06T17:45:31.5352611Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] Intersecting scope entries count - 0[0m
+2022-12-06T17:45:31.5354442Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] Fetched access token from host login.microsoftonline.com. [0m
+2022-12-06T17:45:31.5355961Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9] 
+2022-12-06T17:45:31.5356867Z 	=== Token Acquisition finished successfully:[0m
+2022-12-06T17:45:31.5358483Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - c6a73243-9996-4536-8fb7-7752d3a08ea9]  AT expiration time: 12/06/2022 18:37:25 +00:00, scopes https://management.core.windows.net//.default source IdentityProvider from login.microsoftonline.com appHashCode 39885319[0m
+2022-12-06T17:45:31.5360168Z [33;1mDEBUG: ClientSecretCredential.GetToken succeeded. Scopes: [ https://management.core.windows.net//.default ] ParentRequestId:  ExpiresOn: 2022-12-06T18:37:25.1301930+00:00[0m
+2022-12-06T17:45:31.5361555Z [33;1mDEBUG: [Common.Authentication]: Received token with LoginType 'User', Tenant: '1b82cd4b-d2c9-466a-8702-655b07322f05', UserId: '***'[0m
+2022-12-06T17:45:31.5362810Z [33;1mDEBUG: [Common.Authentication]: Authenticating using Account: '***', environment: 'AzureCloud', tenant: '1b82cd4b-d2c9-466a-8702-655b07322f05'[0m
+2022-12-06T17:45:31.5364648Z [33;1mDEBUG: 17:37:26 - [ServicePrincipalAuthenticator] Calling ClientSecretCredential.GetTokenAsync - ApplicationId:'***', TenantId:'1b82cd4b-d2c9-466a-8702-655b07322f05', Scopes:'https://management.core.windows.net//.default', AuthorityHost:'https://login.microsoftonline.com/'[0m
+2022-12-06T17:45:31.5366099Z [33;1mDEBUG: ClientSecretCredential.GetToken invoked. Scopes: [ https://management.core.windows.net//.default ] ParentRequestId: [0m
+2022-12-06T17:45:31.5368076Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - 81705379-3864-4d0d-b438-131163451472] MSAL MSAL.NetCore with assembly version '4.39.0.0'. CorrelationId(81705379-3864-4d0d-b438-131163451472)[0m
+2022-12-06T17:45:31.5369561Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - 81705379-3864-4d0d-b438-131163451472] === AcquireTokenForClientParameters ===
+2022-12-06T17:45:31.5370273Z SendX5C: False
+2022-12-06T17:45:31.5370535Z ForceRefresh: False
+2022-12-06T17:45:31.5370891Z [0m
+2022-12-06T17:45:31.5371734Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - 81705379-3864-4d0d-b438-131163451472] 
+2022-12-06T17:45:31.5372319Z === Request Data ===
+2022-12-06T17:45:31.5372718Z Authority Provided? - True
+2022-12-06T17:45:31.5373191Z Scopes - https://management.core.windows.net//.default
+2022-12-06T17:45:31.5373694Z Extra Query Params Keys (space separated) - 
+2022-12-06T17:45:31.5374138Z ApiId - AcquireTokenForClient
+2022-12-06T17:45:31.5374544Z IsConfidentialClient - True
+2022-12-06T17:45:31.5374929Z SendX5C - False
+2022-12-06T17:45:31.5375174Z LoginHint ? False
+2022-12-06T17:45:31.5375562Z IsBrokerConfigured - False
+2022-12-06T17:45:31.5375959Z HomeAccountId - False
+2022-12-06T17:45:31.5376431Z CorrelationId - 81705379-3864-4d0d-b438-131163451472
+2022-12-06T17:45:31.5376774Z UserAssertion set: False
+2022-12-06T17:45:31.5377195Z LongRunningOboCacheKey set: False
+2022-12-06T17:45:31.5377556Z [0m
+2022-12-06T17:45:31.5378656Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - 81705379-3864-4d0d-b438-131163451472] === Token Acquisition (ClientCredentialRequest) started:
+2022-12-06T17:45:31.5379407Z 	 Scopes: https://management.core.windows.net//.default
+2022-12-06T17:45:31.5379915Z 	Authority Host: login.microsoftonline.com[0m
+2022-12-06T17:45:31.5380974Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.13 - 81705379-3864-4d0d-b438-131163451472] [Region discovery] Not using a regional authority. [0m
+2022-12-06T17:45:31.5382145Z [33;1mDEBUG: Request [a4e1594c-bdd1-4441-8c52-2355c1d811f6] POST https://login.microsoftonline.com/1b82cd4b-d2c9-466a-8702-655b07322f05/oauth2/v2.0/token
+2022-12-06T17:45:31.5382765Z x-client-SKU:REDACTED
+2022-12-06T17:45:31.5383176Z x-client-Ver:REDACTED
+2022-12-06T17:45:31.5383580Z x-client-OS:REDACTED
+2022-12-06T17:45:31.5384017Z x-client-current-telemetry:REDACTED
+2022-12-06T17:45:31.5384495Z x-client-last-telemetry:REDACTED
+2022-12-06T17:45:31.5385050Z x-ms-PKeyAuth:REDACTED
+2022-12-06T17:45:31.5385472Z x-ms-lib-capability:REDACTED
+2022-12-06T17:45:31.5385920Z client-request-id:REDACTED
+2022-12-06T17:45:31.5386364Z return-client-request-id:REDACTED
+2022-12-06T17:45:31.5386796Z x-app-name:REDACTED
+2022-12-06T17:45:31.5387190Z x-app-ver:REDACTED
+2022-12-06T17:45:31.5387700Z x-ms-client-request-id:a4e1594c-bdd1-4441-8c52-2355c1d811f6
+2022-12-06T17:45:31.5388226Z x-ms-return-client-request-id:true
+2022-12-06T17:45:31.5388969Z User-Agent:azsdk-net-Identity/1.6.0,(.NET 6.0.10; Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022)
+2022-12-06T17:45:31.5389633Z Content-Type:application/x-www-form-urlencoded
+2022-12-06T17:45:31.5390113Z client assembly: Azure.Identity[0m
+2022-12-06T17:45:31.5390694Z [33;1mDEBUG: Response [a4e1594c-bdd1-4441-8c52-2355c1d811f6] 200 OK (00.2s)
+2022-12-06T17:45:31.5391206Z Cache-Control:no-store, no-cache
+2022-12-06T17:45:31.5391617Z Pragma:no-cache
+2022-12-06T17:45:31.5392155Z Strict-Transport-Security:REDACTED
+2022-12-06T17:45:31.5392613Z X-Content-Type-Options:REDACTED
+2022-12-06T17:45:31.5393018Z P3P:REDACTED
+2022-12-06T17:45:31.5393417Z client-request-id:REDACTED
+2022-12-06T17:45:31.5393937Z x-ms-request-id:b70b6f2d-af6e-423c-8582-a660230c3100
+2022-12-06T17:45:31.5394417Z x-ms-ests-server:REDACTED
+2022-12-06T17:45:31.5394825Z x-ms-clitelem:REDACTED
+2022-12-06T17:45:31.5395247Z X-XSS-Protection:REDACTED
+2022-12-06T17:45:31.5395657Z Set-Cookie:REDACTED
+2022-12-06T17:45:31.5395965Z Date:Tue, 06 Dec 2022 17:37:25 GMT
+2022-12-06T17:45:31.5396466Z Content-Type:application/json; charset=utf-8
+2022-12-06T17:45:31.5396955Z Expires:-1
+2022-12-06T17:45:31.5397344Z Content-Length:1379
+2022-12-06T17:45:31.5397698Z [0m
+2022-12-06T17:45:31.5398780Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] ScopeSet was missing from the token response, so using developer provided scopes in the result. [0m
+2022-12-06T17:45:31.5400261Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] Checking client info returned from the server..[0m
+2022-12-06T17:45:31.5401627Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] Saving token response to cache..[0m
+2022-12-06T17:45:31.5403088Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] ID Token not present in response. [0m
+2022-12-06T17:45:31.5404559Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] Cannot determine home account id - or id token or no client info and no subject [0m
+2022-12-06T17:45:31.5406005Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] Saving AT in cache and removing overlapping ATs...[0m
+2022-12-06T17:45:31.5407572Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] Looking for scopes for the authority in the cache which intersect with https://management.core.windows.net//.default[0m
+2022-12-06T17:45:31.5409057Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] Intersecting scope entries count - 0[0m
+2022-12-06T17:45:31.5410468Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] Fetched access token from host login.microsoftonline.com. [0m
+2022-12-06T17:45:31.5411778Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472] 
+2022-12-06T17:45:31.5412556Z 	=== Token Acquisition finished successfully:[0m
+2022-12-06T17:45:31.5413937Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.29 - 81705379-3864-4d0d-b438-131163451472]  AT expiration time: 12/06/2022 18:37:25 +00:00, scopes https://management.core.windows.net//.default source IdentityProvider from login.microsoftonline.com appHashCode 8223620[0m
+2022-12-06T17:45:31.5415398Z [33;1mDEBUG: ClientSecretCredential.GetToken succeeded. Scopes: [ https://management.core.windows.net//.default ] ParentRequestId:  ExpiresOn: 2022-12-06T18:37:25.2959830+00:00[0m
+2022-12-06T17:45:31.5416644Z [33;1mDEBUG: [Common.Authentication]: Received token with LoginType 'User', Tenant: '1b82cd4b-d2c9-466a-8702-655b07322f05', UserId: '***'[0m
+2022-12-06T17:45:31.5417752Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5417979Z 
+2022-12-06T17:45:31.5418205Z HTTP Method:
+2022-12-06T17:45:31.5418435Z GET
+2022-12-06T17:45:31.5418521Z 
+2022-12-06T17:45:31.5418839Z Absolute Uri:
+2022-12-06T17:45:31.5419680Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resources?$filter=resourceType eq 'Microsoft.Web/sites' and name eq 'recordentdevappbackend'&api-version=2016-09-01
+2022-12-06T17:45:31.5420122Z 
+2022-12-06T17:45:31.5420325Z Headers:
+2022-12-06T17:45:31.5420824Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5421316Z Accept-Language               : en-US
+2022-12-06T17:45:31.5421456Z 
+2022-12-06T17:45:31.5421653Z Body:
+2022-12-06T17:45:31.5421757Z 
+2022-12-06T17:45:31.5421837Z 
+2022-12-06T17:45:31.5422137Z [0m
+2022-12-06T17:45:31.5422641Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5422971Z 
+2022-12-06T17:45:31.5423201Z Status Code:
+2022-12-06T17:45:31.5423428Z OK
+2022-12-06T17:45:31.5423515Z 
+2022-12-06T17:45:31.5423728Z Headers:
+2022-12-06T17:45:31.5424117Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5424546Z Pragma                        : no-cache
+2022-12-06T17:45:31.5425009Z x-ms-ratelimit-remaining-subscription-reads: 11999
+2022-12-06T17:45:31.5425576Z x-ms-request-id               : 1d919712-d173-4106-b880-855c1544eddf
+2022-12-06T17:45:31.5426171Z x-ms-correlation-request-id   : 1d919712-d173-4106-b880-855c1544eddf
+2022-12-06T17:45:31.5426863Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173726Z:1d919712-d173-4106-b880-855c1544eddf
+2022-12-06T17:45:31.5427527Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5428043Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5428382Z Date                          : Tue, 06 Dec 2022 17:37:26 GMT
+2022-12-06T17:45:31.5428563Z 
+2022-12-06T17:45:31.5428757Z Body:
+2022-12-06T17:45:31.5428967Z {
+2022-12-06T17:45:31.5429180Z   "value": [
+2022-12-06T17:45:31.5429386Z     {
+2022-12-06T17:45:31.5430078Z       "id": "/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/devgroup-rg/providers/Microsoft.Web/sites/recordentdevappbackend",
+2022-12-06T17:45:31.5430694Z       "name": "recordentdevappbackend",
+2022-12-06T17:45:31.5430995Z       "type": "Microsoft.Web/sites",
+2022-12-06T17:45:31.5431284Z       "kind": "app,linux",
+2022-12-06T17:45:31.5431551Z       "location": "centralindia",
+2022-12-06T17:45:31.5431815Z       "tags": {
+2022-12-06T17:45:31.5432681Z         "hidden-related:diagnostics/applicationInsightsSettings": "{\"ApiKey\":\"MTDWa5Te0LYg2bsEYKGRNv2Yph1P5CB/CKcM2DTxny3WbnyYdSfVsCbe0p6vJjpn\",\"AppId\":\"26eb6c3b-7460-44d0-91e6-ae1b4fc4dd6b\"}"
+2022-12-06T17:45:31.5433242Z       }
+2022-12-06T17:45:31.5433433Z     }
+2022-12-06T17:45:31.5433635Z   ]
+2022-12-06T17:45:31.5433822Z }
+2022-12-06T17:45:31.5433917Z 
+2022-12-06T17:45:31.5434213Z [0m
+2022-12-06T17:45:31.5435070Z [33;1mDEBUG: [Common.Authentication]: Authenticating using Account: '***', environment: 'AzureCloud', tenant: '1b82cd4b-d2c9-466a-8702-655b07322f05'[0m
+2022-12-06T17:45:31.5436649Z [33;1mDEBUG: 17:37:26 - [ServicePrincipalAuthenticator] Calling ClientSecretCredential.GetTokenAsync - ApplicationId:'***', TenantId:'1b82cd4b-d2c9-466a-8702-655b07322f05', Scopes:'https://management.core.windows.net//.default', AuthorityHost:'https://login.microsoftonline.com/'[0m
+2022-12-06T17:45:31.5437916Z [33;1mDEBUG: ClientSecretCredential.GetToken invoked. Scopes: [ https://management.core.windows.net//.default ] ParentRequestId: [0m
+2022-12-06T17:45:31.5439394Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.93 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] MSAL MSAL.NetCore with assembly version '4.39.0.0'. CorrelationId(20a5618a-9dc5-49bb-adaa-4f320d14a60b)[0m
+2022-12-06T17:45:31.5441008Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.93 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] === AcquireTokenForClientParameters ===
+2022-12-06T17:45:31.5441719Z SendX5C: False
+2022-12-06T17:45:31.5441966Z ForceRefresh: False
+2022-12-06T17:45:31.5442324Z [0m
+2022-12-06T17:45:31.5443175Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.93 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] 
+2022-12-06T17:45:31.5443752Z === Request Data ===
+2022-12-06T17:45:31.5444152Z Authority Provided? - True
+2022-12-06T17:45:31.5444636Z Scopes - https://management.core.windows.net//.default
+2022-12-06T17:45:31.5445135Z Extra Query Params Keys (space separated) - 
+2022-12-06T17:45:31.5445702Z ApiId - AcquireTokenForClient
+2022-12-06T17:45:31.5446133Z IsConfidentialClient - True
+2022-12-06T17:45:31.5446505Z SendX5C - False
+2022-12-06T17:45:31.5446763Z LoginHint ? False
+2022-12-06T17:45:31.5447138Z IsBrokerConfigured - False
+2022-12-06T17:45:31.5447541Z HomeAccountId - False
+2022-12-06T17:45:31.5448031Z CorrelationId - 20a5618a-9dc5-49bb-adaa-4f320d14a60b
+2022-12-06T17:45:31.5448360Z UserAssertion set: False
+2022-12-06T17:45:31.5448667Z LongRunningOboCacheKey set: False
+2022-12-06T17:45:31.5449033Z [0m
+2022-12-06T17:45:31.5450016Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.93 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] === Token Acquisition (ClientCredentialRequest) started:
+2022-12-06T17:45:31.5450766Z 	 Scopes: https://management.core.windows.net//.default
+2022-12-06T17:45:31.5451386Z 	Authority Host: login.microsoftonline.com[0m
+2022-12-06T17:45:31.5452478Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:26.93 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] [Region discovery] Not using a regional authority. [0m
+2022-12-06T17:45:31.5453663Z [33;1mDEBUG: Request [9e69e5d8-8f79-45ea-9979-3774e4c147ea] POST https://login.microsoftonline.com/1b82cd4b-d2c9-466a-8702-655b07322f05/oauth2/v2.0/token
+2022-12-06T17:45:31.5454304Z x-client-SKU:REDACTED
+2022-12-06T17:45:31.5454700Z x-client-Ver:REDACTED
+2022-12-06T17:45:31.5455106Z x-client-OS:REDACTED
+2022-12-06T17:45:31.5455557Z x-client-current-telemetry:REDACTED
+2022-12-06T17:45:31.5456022Z x-client-last-telemetry:REDACTED
+2022-12-06T17:45:31.5456460Z x-ms-PKeyAuth:REDACTED
+2022-12-06T17:45:31.5457182Z x-ms-lib-capability:REDACTED
+2022-12-06T17:45:31.5457637Z client-request-id:REDACTED
+2022-12-06T17:45:31.5458095Z return-client-request-id:REDACTED
+2022-12-06T17:45:31.5458517Z x-app-name:REDACTED
+2022-12-06T17:45:31.5458915Z x-app-ver:REDACTED
+2022-12-06T17:45:31.5459440Z x-ms-client-request-id:9e69e5d8-8f79-45ea-9979-3774e4c147ea
+2022-12-06T17:45:31.5459950Z x-ms-return-client-request-id:true
+2022-12-06T17:45:31.5460696Z User-Agent:azsdk-net-Identity/1.6.0,(.NET 6.0.10; Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022)
+2022-12-06T17:45:31.5461376Z Content-Type:application/x-www-form-urlencoded
+2022-12-06T17:45:31.5461847Z client assembly: Azure.Identity[0m
+2022-12-06T17:45:31.5462430Z [33;1mDEBUG: Response [9e69e5d8-8f79-45ea-9979-3774e4c147ea] 200 OK (00.1s)
+2022-12-06T17:45:31.5462951Z Cache-Control:no-store, no-cache
+2022-12-06T17:45:31.5463350Z Pragma:no-cache
+2022-12-06T17:45:31.5463780Z Strict-Transport-Security:REDACTED
+2022-12-06T17:45:31.5464246Z X-Content-Type-Options:REDACTED
+2022-12-06T17:45:31.5464535Z P3P:REDACTED
+2022-12-06T17:45:31.5464940Z client-request-id:REDACTED
+2022-12-06T17:45:31.5465457Z x-ms-request-id:b70b6f2d-af6e-423c-8582-a660370c3100
+2022-12-06T17:45:31.5466070Z x-ms-ests-server:REDACTED
+2022-12-06T17:45:31.5466613Z x-ms-clitelem:REDACTED
+2022-12-06T17:45:31.5467042Z X-XSS-Protection:REDACTED
+2022-12-06T17:45:31.5467456Z Set-Cookie:REDACTED
+2022-12-06T17:45:31.5467775Z Date:Tue, 06 Dec 2022 17:37:26 GMT
+2022-12-06T17:45:31.5468260Z Content-Type:application/json; charset=utf-8
+2022-12-06T17:45:31.5468739Z Expires:-1
+2022-12-06T17:45:31.5469124Z Content-Length:1379
+2022-12-06T17:45:31.5469463Z [0m
+2022-12-06T17:45:31.5470660Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] ScopeSet was missing from the token response, so using developer provided scopes in the result. [0m
+2022-12-06T17:45:31.5472151Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] Checking client info returned from the server..[0m
+2022-12-06T17:45:31.5473631Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] Saving token response to cache..[0m
+2022-12-06T17:45:31.5474999Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] ID Token not present in response. [0m
+2022-12-06T17:45:31.5476455Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] Cannot determine home account id - or id token or no client info and no subject [0m
+2022-12-06T17:45:31.5477909Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] Saving AT in cache and removing overlapping ATs...[0m
+2022-12-06T17:45:31.5479487Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] Looking for scopes for the authority in the cache which intersect with https://management.core.windows.net//.default[0m
+2022-12-06T17:45:31.5480970Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] Intersecting scope entries count - 0[0m
+2022-12-06T17:45:31.5482387Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] Fetched access token from host login.microsoftonline.com. [0m
+2022-12-06T17:45:31.5483801Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b] 
+2022-12-06T17:45:31.5484603Z 	=== Token Acquisition finished successfully:[0m
+2022-12-06T17:45:31.5486006Z [33;1mDEBUG: False MSAL 4.39.0.0 MSAL.NetCore .NET 6.0.10 Linux 5.15.0-1023-azure #29~20.04.1-Ubuntu SMP Wed Oct 26 19:18:25 UTC 2022 [12/06 17:37:27.05 - 20a5618a-9dc5-49bb-adaa-4f320d14a60b]  AT expiration time: 12/06/2022 18:37:26 +00:00, scopes https://management.core.windows.net//.default source IdentityProvider from login.microsoftonline.com appHashCode 304242[0m
+2022-12-06T17:45:31.5487470Z [33;1mDEBUG: ClientSecretCredential.GetToken succeeded. Scopes: [ https://management.core.windows.net//.default ] ParentRequestId:  ExpiresOn: 2022-12-06T18:37:26.0594428+00:00[0m
+2022-12-06T17:45:31.5488644Z [33;1mDEBUG: [Common.Authentication]: Received token with LoginType 'User', Tenant: '1b82cd4b-d2c9-466a-8702-655b07322f05', UserId: '***'[0m
+2022-12-06T17:45:31.5489507Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5489733Z 
+2022-12-06T17:45:31.5489949Z HTTP Method:
+2022-12-06T17:45:31.5490180Z POST
+2022-12-06T17:45:31.5490270Z 
+2022-12-06T17:45:31.5490488Z Absolute Uri:
+2022-12-06T17:45:31.5491361Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/restoreSnapshot?api-version=2021-01-15
+2022-12-06T17:45:31.5491873Z 
+2022-12-06T17:45:31.5492091Z Headers:
+2022-12-06T17:45:31.5492697Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5493201Z Accept-Language               : en-US
+2022-12-06T17:45:31.5493338Z 
+2022-12-06T17:45:31.5493548Z Body:
+2022-12-06T17:45:31.5493741Z {
+2022-12-06T17:45:31.5493964Z   "properties": {
+2022-12-06T17:45:31.5494409Z     "snapshotTime": "2022-12-06T16:52:48",
+2022-12-06T17:45:31.5494715Z     "recoverySource": {
+2022-12-06T17:45:31.5494996Z       "location": "centralindia",
+2022-12-06T17:45:31.5495727Z       "id": "/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/devgroup-rg/providers/Microsoft.Web/sites/recordentdevappbackend"
+2022-12-06T17:45:31.5496171Z     },
+2022-12-06T17:45:31.5496407Z     "overwrite": true,
+2022-12-06T17:45:31.5496687Z     "recoverConfiguration": true,
+2022-12-06T17:45:31.5497089Z     "ignoreConflictingHostNames": true,
+2022-12-06T17:45:31.5497392Z     "useDRSecondary": false
+2022-12-06T17:45:31.5497633Z   }
+2022-12-06T17:45:31.5497819Z }
+2022-12-06T17:45:31.5497900Z 
+2022-12-06T17:45:31.5498216Z [0m
+2022-12-06T17:45:31.5498865Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5499095Z 
+2022-12-06T17:45:31.5499319Z Status Code:
+2022-12-06T17:45:31.5499543Z Accepted
+2022-12-06T17:45:31.5499643Z 
+2022-12-06T17:45:31.5499857Z Headers:
+2022-12-06T17:45:31.5500251Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5500759Z Pragma                        : no-cache
+2022-12-06T17:45:31.5501061Z ETag                          : "1D90997A58F8BA0"
+2022-12-06T17:45:31.5502128Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5502943Z Retry-After                   : 15
+2022-12-06T17:45:31.5503462Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5503993Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5504432Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5504870Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5505351Z x-ms-ratelimit-remaining-subscription-writes: 1199
+2022-12-06T17:45:31.5505911Z x-ms-request-id               : 82fe4f2d-2e69-431e-a472-1abc9215a1c9
+2022-12-06T17:45:31.5506507Z x-ms-correlation-request-id   : 82fe4f2d-2e69-431e-a472-1abc9215a1c9
+2022-12-06T17:45:31.5507216Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173732Z:82fe4f2d-2e69-431e-a472-1abc9215a1c9
+2022-12-06T17:45:31.5507783Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5508136Z Date                          : Tue, 06 Dec 2022 17:37:31 GMT
+2022-12-06T17:45:31.5508302Z 
+2022-12-06T17:45:31.5508512Z Body:
+2022-12-06T17:45:31.5508602Z 
+2022-12-06T17:45:31.5508693Z 
+2022-12-06T17:45:31.5508986Z [0m
+2022-12-06T17:45:31.5509496Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5509716Z 
+2022-12-06T17:45:31.5509937Z HTTP Method:
+2022-12-06T17:45:31.5510150Z GET
+2022-12-06T17:45:31.5510237Z 
+2022-12-06T17:45:31.5510455Z Absolute Uri:
+2022-12-06T17:45:31.5511443Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5512079Z 
+2022-12-06T17:45:31.5512304Z Headers:
+2022-12-06T17:45:31.5512799Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5513013Z 
+2022-12-06T17:45:31.5513209Z Body:
+2022-12-06T17:45:31.5513312Z 
+2022-12-06T17:45:31.5513393Z 
+2022-12-06T17:45:31.5513680Z [0m
+2022-12-06T17:45:31.5514280Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5514501Z 
+2022-12-06T17:45:31.5514723Z Status Code:
+2022-12-06T17:45:31.5514957Z Accepted
+2022-12-06T17:45:31.5515052Z 
+2022-12-06T17:45:31.5515248Z Headers:
+2022-12-06T17:45:31.5515639Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5516061Z Pragma                        : no-cache
+2022-12-06T17:45:31.5517105Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5517924Z Retry-After                   : 15
+2022-12-06T17:45:31.5518441Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5518946Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5519395Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5519839Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5520308Z x-ms-ratelimit-remaining-subscription-reads: 11999
+2022-12-06T17:45:31.5520869Z x-ms-request-id               : 24479d3b-5846-4931-8d3f-da0f1472e521
+2022-12-06T17:45:31.5521461Z x-ms-correlation-request-id   : 24479d3b-5846-4931-8d3f-da0f1472e521
+2022-12-06T17:45:31.5522159Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173747Z:24479d3b-5846-4931-8d3f-da0f1472e521
+2022-12-06T17:45:31.5522743Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5523103Z Date                          : Tue, 06 Dec 2022 17:37:47 GMT
+2022-12-06T17:45:31.5523271Z 
+2022-12-06T17:45:31.5523478Z Body:
+2022-12-06T17:45:31.5523568Z 
+2022-12-06T17:45:31.5523647Z 
+2022-12-06T17:45:31.5523958Z [0m
+2022-12-06T17:45:31.5524456Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5524690Z 
+2022-12-06T17:45:31.5524976Z HTTP Method:
+2022-12-06T17:45:31.5525206Z GET
+2022-12-06T17:45:31.5525297Z 
+2022-12-06T17:45:31.5525517Z Absolute Uri:
+2022-12-06T17:45:31.5526498Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5526997Z 
+2022-12-06T17:45:31.5527192Z Headers:
+2022-12-06T17:45:31.5527682Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5527884Z 
+2022-12-06T17:45:31.5528094Z Body:
+2022-12-06T17:45:31.5528185Z 
+2022-12-06T17:45:31.5528264Z 
+2022-12-06T17:45:31.5528564Z [0m
+2022-12-06T17:45:31.5529079Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5529299Z 
+2022-12-06T17:45:31.5529507Z Status Code:
+2022-12-06T17:45:31.5529745Z Accepted
+2022-12-06T17:45:31.5529841Z 
+2022-12-06T17:45:31.5530052Z Headers:
+2022-12-06T17:45:31.5530448Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5530861Z Pragma                        : no-cache
+2022-12-06T17:45:31.5531915Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5532732Z Retry-After                   : 15
+2022-12-06T17:45:31.5533232Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5533844Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5534295Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5534718Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5535204Z x-ms-ratelimit-remaining-subscription-reads: 11998
+2022-12-06T17:45:31.5535769Z x-ms-request-id               : 1e170dc1-1963-420b-b54c-7be5adfdcc7c
+2022-12-06T17:45:31.5536347Z x-ms-correlation-request-id   : 1e170dc1-1963-420b-b54c-7be5adfdcc7c
+2022-12-06T17:45:31.5538055Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173803Z:1e170dc1-1963-420b-b54c-7be5adfdcc7c
+2022-12-06T17:45:31.5538658Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5538995Z Date                          : Tue, 06 Dec 2022 17:38:02 GMT
+2022-12-06T17:45:31.5539163Z 
+2022-12-06T17:45:31.5539372Z Body:
+2022-12-06T17:45:31.5539462Z 
+2022-12-06T17:45:31.5539556Z 
+2022-12-06T17:45:31.5539843Z [0m
+2022-12-06T17:45:31.5540363Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5540593Z 
+2022-12-06T17:45:31.5540821Z HTTP Method:
+2022-12-06T17:45:31.5541036Z GET
+2022-12-06T17:45:31.5541136Z 
+2022-12-06T17:45:31.5541342Z Absolute Uri:
+2022-12-06T17:45:31.5542328Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5542846Z 
+2022-12-06T17:45:31.5543060Z Headers:
+2022-12-06T17:45:31.5543549Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5543761Z 
+2022-12-06T17:45:31.5543958Z Body:
+2022-12-06T17:45:31.5544061Z 
+2022-12-06T17:45:31.5544141Z 
+2022-12-06T17:45:31.5544433Z [0m
+2022-12-06T17:45:31.5544946Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5545167Z 
+2022-12-06T17:45:31.5545393Z Status Code:
+2022-12-06T17:45:31.5545636Z Accepted
+2022-12-06T17:45:31.5545733Z 
+2022-12-06T17:45:31.5545929Z Headers:
+2022-12-06T17:45:31.5546322Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5546742Z Pragma                        : no-cache
+2022-12-06T17:45:31.5547791Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5548621Z Retry-After                   : 15
+2022-12-06T17:45:31.5549146Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5549660Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5550120Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5550559Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5551032Z x-ms-ratelimit-remaining-subscription-reads: 11997
+2022-12-06T17:45:31.5551601Z x-ms-request-id               : a01294d3-8db3-403e-9463-4f9961a092d9
+2022-12-06T17:45:31.5552236Z x-ms-correlation-request-id   : a01294d3-8db3-403e-9463-4f9961a092d9
+2022-12-06T17:45:31.5552942Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173818Z:a01294d3-8db3-403e-9463-4f9961a092d9
+2022-12-06T17:45:31.5553528Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5553876Z Date                          : Tue, 06 Dec 2022 17:38:17 GMT
+2022-12-06T17:45:31.5554049Z 
+2022-12-06T17:45:31.5554244Z Body:
+2022-12-06T17:45:31.5554348Z 
+2022-12-06T17:45:31.5554428Z 
+2022-12-06T17:45:31.5554733Z [0m
+2022-12-06T17:45:31.5555232Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5555454Z 
+2022-12-06T17:45:31.5555679Z HTTP Method:
+2022-12-06T17:45:31.5555910Z GET
+2022-12-06T17:45:31.5555997Z 
+2022-12-06T17:45:31.5556215Z Absolute Uri:
+2022-12-06T17:45:31.5557186Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5557844Z 
+2022-12-06T17:45:31.5558043Z Headers:
+2022-12-06T17:45:31.5558540Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5558739Z 
+2022-12-06T17:45:31.5558948Z Body:
+2022-12-06T17:45:31.5559037Z 
+2022-12-06T17:45:31.5559115Z 
+2022-12-06T17:45:31.5559416Z [0m
+2022-12-06T17:45:31.5560002Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5560236Z 
+2022-12-06T17:45:31.5560445Z Status Code:
+2022-12-06T17:45:31.5560681Z Accepted
+2022-12-06T17:45:31.5560776Z 
+2022-12-06T17:45:31.5560987Z Headers:
+2022-12-06T17:45:31.5561371Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5561799Z Pragma                        : no-cache
+2022-12-06T17:45:31.5562863Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5563694Z Retry-After                   : 15
+2022-12-06T17:45:31.5564197Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5564715Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5565153Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5565589Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5566068Z x-ms-ratelimit-remaining-subscription-reads: 11996
+2022-12-06T17:45:31.5566623Z x-ms-request-id               : 4e0e17a9-5801-4eb1-a0ef-9bcf431d6782
+2022-12-06T17:45:31.5567219Z x-ms-correlation-request-id   : 4e0e17a9-5801-4eb1-a0ef-9bcf431d6782
+2022-12-06T17:45:31.5567932Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173833Z:4e0e17a9-5801-4eb1-a0ef-9bcf431d6782
+2022-12-06T17:45:31.5568505Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5568859Z Date                          : Tue, 06 Dec 2022 17:38:33 GMT
+2022-12-06T17:45:31.5569025Z 
+2022-12-06T17:45:31.5569232Z Body:
+2022-12-06T17:45:31.5569322Z 
+2022-12-06T17:45:31.5569401Z 
+2022-12-06T17:45:31.5569702Z [0m
+2022-12-06T17:45:31.5570215Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5570436Z 
+2022-12-06T17:45:31.5570655Z HTTP Method:
+2022-12-06T17:45:31.5570874Z GET
+2022-12-06T17:45:31.5570960Z 
+2022-12-06T17:45:31.5571176Z Absolute Uri:
+2022-12-06T17:45:31.5572702Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5573224Z 
+2022-12-06T17:45:31.5573448Z Headers:
+2022-12-06T17:45:31.5573958Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5574179Z 
+2022-12-06T17:45:31.5574377Z Body:
+2022-12-06T17:45:31.5574468Z 
+2022-12-06T17:45:31.5574560Z 
+2022-12-06T17:45:31.5574852Z [0m
+2022-12-06T17:45:31.5575375Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5575598Z 
+2022-12-06T17:45:31.5575818Z Status Code:
+2022-12-06T17:45:31.5576039Z Accepted
+2022-12-06T17:45:31.5576148Z 
+2022-12-06T17:45:31.5576345Z Headers:
+2022-12-06T17:45:31.5576738Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5577245Z Pragma                        : no-cache
+2022-12-06T17:45:31.5578290Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5579119Z Retry-After                   : 15
+2022-12-06T17:45:31.5579631Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5580259Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5580713Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5581147Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5581619Z x-ms-ratelimit-remaining-subscription-reads: 11995
+2022-12-06T17:45:31.5582186Z x-ms-request-id               : a311afb8-ba2b-4d70-b105-74d2a1a754d1
+2022-12-06T17:45:31.5582767Z x-ms-correlation-request-id   : a311afb8-ba2b-4d70-b105-74d2a1a754d1
+2022-12-06T17:45:31.5583566Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173848Z:a311afb8-ba2b-4d70-b105-74d2a1a754d1
+2022-12-06T17:45:31.5584144Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5584487Z Date                          : Tue, 06 Dec 2022 17:38:48 GMT
+2022-12-06T17:45:31.5584667Z 
+2022-12-06T17:45:31.5584863Z Body:
+2022-12-06T17:45:31.5584965Z 
+2022-12-06T17:45:31.5585045Z 
+2022-12-06T17:45:31.5585334Z [0m
+2022-12-06T17:45:31.5585847Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5586073Z 
+2022-12-06T17:45:31.5586293Z HTTP Method:
+2022-12-06T17:45:31.5586521Z GET
+2022-12-06T17:45:31.5586607Z 
+2022-12-06T17:45:31.5586813Z Absolute Uri:
+2022-12-06T17:45:31.5587796Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5588312Z 
+2022-12-06T17:45:31.5588525Z Headers:
+2022-12-06T17:45:31.5589006Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5589199Z 
+2022-12-06T17:45:31.5589406Z Body:
+2022-12-06T17:45:31.5589497Z 
+2022-12-06T17:45:31.5589575Z 
+2022-12-06T17:45:31.5589877Z [0m
+2022-12-06T17:45:31.5590377Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5590609Z 
+2022-12-06T17:45:31.5590818Z Status Code:
+2022-12-06T17:45:31.5591051Z Accepted
+2022-12-06T17:45:31.5591146Z 
+2022-12-06T17:45:31.5591355Z Headers:
+2022-12-06T17:45:31.5591731Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5592154Z Pragma                        : no-cache
+2022-12-06T17:45:31.5593204Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5594017Z Retry-After                   : 15
+2022-12-06T17:45:31.5594527Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5595045Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5595476Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5595910Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5596389Z x-ms-ratelimit-remaining-subscription-reads: 11994
+2022-12-06T17:45:31.5596940Z x-ms-request-id               : 50997bc0-8655-4902-b555-fc3e56b777ea
+2022-12-06T17:45:31.5597533Z x-ms-correlation-request-id   : 50997bc0-8655-4902-b555-fc3e56b777ea
+2022-12-06T17:45:31.5598237Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173903Z:50997bc0-8655-4902-b555-fc3e56b777ea
+2022-12-06T17:45:31.5598802Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5599155Z Date                          : Tue, 06 Dec 2022 17:39:03 GMT
+2022-12-06T17:45:31.5599324Z 
+2022-12-06T17:45:31.5599533Z Body:
+2022-12-06T17:45:31.5599624Z 
+2022-12-06T17:45:31.5599704Z 
+2022-12-06T17:45:31.5600006Z [0m
+2022-12-06T17:45:31.5600518Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5600738Z 
+2022-12-06T17:45:31.5600944Z HTTP Method:
+2022-12-06T17:45:31.5601170Z GET
+2022-12-06T17:45:31.5601256Z 
+2022-12-06T17:45:31.5601473Z Absolute Uri:
+2022-12-06T17:45:31.5602451Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5603038Z 
+2022-12-06T17:45:31.5603255Z Headers:
+2022-12-06T17:45:31.5603746Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5603945Z 
+2022-12-06T17:45:31.5604153Z Body:
+2022-12-06T17:45:31.5604244Z 
+2022-12-06T17:45:31.5604336Z 
+2022-12-06T17:45:31.5604698Z [0m
+2022-12-06T17:45:31.5605227Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5605450Z 
+2022-12-06T17:45:31.5605670Z Status Code:
+2022-12-06T17:45:31.5605892Z Accepted
+2022-12-06T17:45:31.5606001Z 
+2022-12-06T17:45:31.5606198Z Headers:
+2022-12-06T17:45:31.5606589Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5606999Z Pragma                        : no-cache
+2022-12-06T17:45:31.5608058Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5608883Z Retry-After                   : 15
+2022-12-06T17:45:31.5609386Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5609906Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5610359Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5610781Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5611262Z x-ms-ratelimit-remaining-subscription-reads: 11993
+2022-12-06T17:45:31.5611826Z x-ms-request-id               : 0e604d80-3f86-477d-bc9b-9d877df815a4
+2022-12-06T17:45:31.5612405Z x-ms-correlation-request-id   : 0e604d80-3f86-477d-bc9b-9d877df815a4
+2022-12-06T17:45:31.5613112Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173919Z:0e604d80-3f86-477d-bc9b-9d877df815a4
+2022-12-06T17:45:31.5613694Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5614032Z Date                          : Tue, 06 Dec 2022 17:39:19 GMT
+2022-12-06T17:45:31.5614208Z 
+2022-12-06T17:45:31.5614403Z Body:
+2022-12-06T17:45:31.5614506Z 
+2022-12-06T17:45:31.5614586Z 
+2022-12-06T17:45:31.5614874Z [0m
+2022-12-06T17:45:31.5615386Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5615604Z 
+2022-12-06T17:45:31.5615825Z HTTP Method:
+2022-12-06T17:45:31.5616042Z GET
+2022-12-06T17:45:31.5616140Z 
+2022-12-06T17:45:31.5616351Z Absolute Uri:
+2022-12-06T17:45:31.5617436Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5617950Z 
+2022-12-06T17:45:31.5618178Z Headers:
+2022-12-06T17:45:31.5618690Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5618895Z 
+2022-12-06T17:45:31.5619104Z Body:
+2022-12-06T17:45:31.5619194Z 
+2022-12-06T17:45:31.5619275Z 
+2022-12-06T17:45:31.5619577Z [0m
+2022-12-06T17:45:31.5620085Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5620322Z 
+2022-12-06T17:45:31.5620532Z Status Code:
+2022-12-06T17:45:31.5620768Z Accepted
+2022-12-06T17:45:31.5620864Z 
+2022-12-06T17:45:31.5621073Z Headers:
+2022-12-06T17:45:31.5621461Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5621879Z Pragma                        : no-cache
+2022-12-06T17:45:31.5622922Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5623743Z Retry-After                   : 15
+2022-12-06T17:45:31.5624257Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5624875Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5625312Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5625747Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5626225Z x-ms-ratelimit-remaining-subscription-reads: 11992
+2022-12-06T17:45:31.5626773Z x-ms-request-id               : 70eb4c02-2890-45f5-8942-8f3a3508d2a7
+2022-12-06T17:45:31.5627365Z x-ms-correlation-request-id   : 70eb4c02-2890-45f5-8942-8f3a3508d2a7
+2022-12-06T17:45:31.5628140Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173934Z:70eb4c02-2890-45f5-8942-8f3a3508d2a7
+2022-12-06T17:45:31.5628718Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5629069Z Date                          : Tue, 06 Dec 2022 17:39:33 GMT
+2022-12-06T17:45:31.5629236Z 
+2022-12-06T17:45:31.5629446Z Body:
+2022-12-06T17:45:31.5629535Z 
+2022-12-06T17:45:31.5629615Z 
+2022-12-06T17:45:31.5629918Z [0m
+2022-12-06T17:45:31.5630418Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5630652Z 
+2022-12-06T17:45:31.5630863Z HTTP Method:
+2022-12-06T17:45:31.5631092Z GET
+2022-12-06T17:45:31.5631178Z 
+2022-12-06T17:45:31.5631397Z Absolute Uri:
+2022-12-06T17:45:31.5632371Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5632904Z 
+2022-12-06T17:45:31.5633106Z Headers:
+2022-12-06T17:45:31.5633600Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5633797Z 
+2022-12-06T17:45:31.5634004Z Body:
+2022-12-06T17:45:31.5634094Z 
+2022-12-06T17:45:31.5634172Z 
+2022-12-06T17:45:31.5634473Z [0m
+2022-12-06T17:45:31.5634985Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5635210Z 
+2022-12-06T17:45:31.5635437Z Status Code:
+2022-12-06T17:45:31.5635659Z Accepted
+2022-12-06T17:45:31.5635755Z 
+2022-12-06T17:45:31.5635966Z Headers:
+2022-12-06T17:45:31.5636372Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5636788Z Pragma                        : no-cache
+2022-12-06T17:45:31.5637843Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5638664Z Retry-After                   : 15
+2022-12-06T17:45:31.5639162Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5639679Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5640130Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5640550Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5641029Z x-ms-ratelimit-remaining-subscription-reads: 11991
+2022-12-06T17:45:31.5641595Z x-ms-request-id               : b7781127-43ba-4cb4-a33e-a012cc29f929
+2022-12-06T17:45:31.5642173Z x-ms-correlation-request-id   : b7781127-43ba-4cb4-a33e-a012cc29f929
+2022-12-06T17:45:31.5642876Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T173949Z:b7781127-43ba-4cb4-a33e-a012cc29f929
+2022-12-06T17:45:31.5643456Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5643794Z Date                          : Tue, 06 Dec 2022 17:39:48 GMT
+2022-12-06T17:45:31.5643975Z 
+2022-12-06T17:45:31.5644167Z Body:
+2022-12-06T17:45:31.5644256Z 
+2022-12-06T17:45:31.5644346Z 
+2022-12-06T17:45:31.5644638Z [0m
+2022-12-06T17:45:31.5645147Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5645366Z 
+2022-12-06T17:45:31.5645586Z HTTP Method:
+2022-12-06T17:45:31.5645798Z GET
+2022-12-06T17:45:31.5645896Z 
+2022-12-06T17:45:31.5646105Z Absolute Uri:
+2022-12-06T17:45:31.5647092Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5647676Z 
+2022-12-06T17:45:31.5647896Z Headers:
+2022-12-06T17:45:31.5648383Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5648595Z 
+2022-12-06T17:45:31.5648791Z Body:
+2022-12-06T17:45:31.5648893Z 
+2022-12-06T17:45:31.5648973Z 
+2022-12-06T17:45:31.5649332Z [0m
+2022-12-06T17:45:31.5649848Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5650070Z 
+2022-12-06T17:45:31.5650290Z Status Code:
+2022-12-06T17:45:31.5650528Z Accepted
+2022-12-06T17:45:31.5650625Z 
+2022-12-06T17:45:31.5650824Z Headers:
+2022-12-06T17:45:31.5651216Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5651638Z Pragma                        : no-cache
+2022-12-06T17:45:31.5652705Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5653530Z Retry-After                   : 15
+2022-12-06T17:45:31.5654045Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5654546Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5654996Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5655429Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5655897Z x-ms-ratelimit-remaining-subscription-reads: 11990
+2022-12-06T17:45:31.5656465Z x-ms-request-id               : 643dd7a2-a838-429f-a041-32913fa609e4
+2022-12-06T17:45:31.5657145Z x-ms-correlation-request-id   : 643dd7a2-a838-429f-a041-32913fa609e4
+2022-12-06T17:45:31.5657837Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174004Z:643dd7a2-a838-429f-a041-32913fa609e4
+2022-12-06T17:45:31.5658422Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5658775Z Date                          : Tue, 06 Dec 2022 17:40:04 GMT
+2022-12-06T17:45:31.5658939Z 
+2022-12-06T17:45:31.5659146Z Body:
+2022-12-06T17:45:31.5659236Z 
+2022-12-06T17:45:31.5659317Z 
+2022-12-06T17:45:31.5659618Z [0m
+2022-12-06T17:45:31.5660116Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5660347Z 
+2022-12-06T17:45:31.5660559Z HTTP Method:
+2022-12-06T17:45:31.5660786Z GET
+2022-12-06T17:45:31.5660871Z 
+2022-12-06T17:45:31.5661091Z Absolute Uri:
+2022-12-06T17:45:31.5662064Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5662591Z 
+2022-12-06T17:45:31.5662794Z Headers:
+2022-12-06T17:45:31.5663283Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5663485Z 
+2022-12-06T17:45:31.5663693Z Body:
+2022-12-06T17:45:31.5663783Z 
+2022-12-06T17:45:31.5663862Z 
+2022-12-06T17:45:31.5664160Z [0m
+2022-12-06T17:45:31.5664672Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5664893Z 
+2022-12-06T17:45:31.5665099Z Status Code:
+2022-12-06T17:45:31.5665332Z Accepted
+2022-12-06T17:45:31.5665428Z 
+2022-12-06T17:45:31.5665636Z Headers:
+2022-12-06T17:45:31.5666026Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5666433Z Pragma                        : no-cache
+2022-12-06T17:45:31.5667486Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5668299Z Retry-After                   : 15
+2022-12-06T17:45:31.5668903Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5669418Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5669865Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5670284Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5670763Z x-ms-ratelimit-remaining-subscription-reads: 11989
+2022-12-06T17:45:31.5671313Z x-ms-request-id               : e05361cf-a366-4e56-b92a-580558df3504
+2022-12-06T17:45:31.5672006Z x-ms-correlation-request-id   : e05361cf-a366-4e56-b92a-580558df3504
+2022-12-06T17:45:31.5672706Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174020Z:e05361cf-a366-4e56-b92a-580558df3504
+2022-12-06T17:45:31.5673267Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5673621Z Date                          : Tue, 06 Dec 2022 17:40:20 GMT
+2022-12-06T17:45:31.5673787Z 
+2022-12-06T17:45:31.5673993Z Body:
+2022-12-06T17:45:31.5674083Z 
+2022-12-06T17:45:31.5674175Z 
+2022-12-06T17:45:31.5674463Z [0m
+2022-12-06T17:45:31.5674976Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5675260Z 
+2022-12-06T17:45:31.5675482Z HTTP Method:
+2022-12-06T17:45:31.5675696Z GET
+2022-12-06T17:45:31.5675795Z 
+2022-12-06T17:45:31.5675998Z Absolute Uri:
+2022-12-06T17:45:31.5676976Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5677490Z 
+2022-12-06T17:45:31.5677706Z Headers:
+2022-12-06T17:45:31.5678184Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5678397Z 
+2022-12-06T17:45:31.5678593Z Body:
+2022-12-06T17:45:31.5678695Z 
+2022-12-06T17:45:31.5678774Z 
+2022-12-06T17:45:31.5679063Z [0m
+2022-12-06T17:45:31.5679579Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5679804Z 
+2022-12-06T17:45:31.5680026Z Status Code:
+2022-12-06T17:45:31.5680259Z Accepted
+2022-12-06T17:45:31.5680354Z 
+2022-12-06T17:45:31.5680552Z Headers:
+2022-12-06T17:45:31.5680942Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5681362Z Pragma                        : no-cache
+2022-12-06T17:45:31.5682402Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5683227Z Retry-After                   : 15
+2022-12-06T17:45:31.5683740Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5684243Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5684695Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5685130Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5685594Z x-ms-ratelimit-remaining-subscription-reads: 11988
+2022-12-06T17:45:31.5686163Z x-ms-request-id               : 1218abcd-c81f-4b9c-9011-2bc90d5c35c7
+2022-12-06T17:45:31.5686757Z x-ms-correlation-request-id   : 1218abcd-c81f-4b9c-9011-2bc90d5c35c7
+2022-12-06T17:45:31.5687450Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174035Z:1218abcd-c81f-4b9c-9011-2bc90d5c35c7
+2022-12-06T17:45:31.5688026Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5688377Z Date                          : Tue, 06 Dec 2022 17:40:35 GMT
+2022-12-06T17:45:31.5688548Z 
+2022-12-06T17:45:31.5688741Z Body:
+2022-12-06T17:45:31.5688843Z 
+2022-12-06T17:45:31.5688922Z 
+2022-12-06T17:45:31.5689223Z [0m
+2022-12-06T17:45:31.5689718Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5689949Z 
+2022-12-06T17:45:31.5690157Z HTTP Method:
+2022-12-06T17:45:31.5690374Z GET
+2022-12-06T17:45:31.5690474Z 
+2022-12-06T17:45:31.5690679Z Absolute Uri:
+2022-12-06T17:45:31.5691664Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5692254Z 
+2022-12-06T17:45:31.5692478Z Headers:
+2022-12-06T17:45:31.5692967Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5693179Z 
+2022-12-06T17:45:31.5693376Z Body:
+2022-12-06T17:45:31.5693483Z 
+2022-12-06T17:45:31.5693632Z 
+2022-12-06T17:45:31.5693931Z [0m
+2022-12-06T17:45:31.5694447Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5694666Z 
+2022-12-06T17:45:31.5694888Z Status Code:
+2022-12-06T17:45:31.5695126Z Accepted
+2022-12-06T17:45:31.5695221Z 
+2022-12-06T17:45:31.5695418Z Headers:
+2022-12-06T17:45:31.5695811Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5696232Z Pragma                        : no-cache
+2022-12-06T17:45:31.5697372Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5698217Z Retry-After                   : 15
+2022-12-06T17:45:31.5698735Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5699241Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5699701Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5700136Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5700603Z x-ms-ratelimit-remaining-subscription-reads: 11987
+2022-12-06T17:45:31.5701166Z x-ms-request-id               : b010fc48-0952-4a2d-b522-c2fb3fb82336
+2022-12-06T17:45:31.5701761Z x-ms-correlation-request-id   : b010fc48-0952-4a2d-b522-c2fb3fb82336
+2022-12-06T17:45:31.5702457Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174051Z:b010fc48-0952-4a2d-b522-c2fb3fb82336
+2022-12-06T17:45:31.5703041Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5703388Z Date                          : Tue, 06 Dec 2022 17:40:50 GMT
+2022-12-06T17:45:31.5703554Z 
+2022-12-06T17:45:31.5703764Z Body:
+2022-12-06T17:45:31.5703856Z 
+2022-12-06T17:45:31.5703936Z 
+2022-12-06T17:45:31.5704239Z [0m
+2022-12-06T17:45:31.5704735Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5704972Z 
+2022-12-06T17:45:31.5705185Z HTTP Method:
+2022-12-06T17:45:31.5705412Z GET
+2022-12-06T17:45:31.5705498Z 
+2022-12-06T17:45:31.5705721Z Absolute Uri:
+2022-12-06T17:45:31.5706692Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5707224Z 
+2022-12-06T17:45:31.5707425Z Headers:
+2022-12-06T17:45:31.5707918Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5708121Z 
+2022-12-06T17:45:31.5708331Z Body:
+2022-12-06T17:45:31.5708421Z 
+2022-12-06T17:45:31.5708500Z 
+2022-12-06T17:45:31.5708801Z [0m
+2022-12-06T17:45:31.5709312Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5709532Z 
+2022-12-06T17:45:31.5709740Z Status Code:
+2022-12-06T17:45:31.5709976Z Accepted
+2022-12-06T17:45:31.5710071Z 
+2022-12-06T17:45:31.5710283Z Headers:
+2022-12-06T17:45:31.5710681Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5711088Z Pragma                        : no-cache
+2022-12-06T17:45:31.5712140Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5712957Z Retry-After                   : 15
+2022-12-06T17:45:31.5713581Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5714099Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5714552Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5714972Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5715453Z x-ms-ratelimit-remaining-subscription-reads: 11986
+2022-12-06T17:45:31.5716021Z x-ms-request-id               : 26a99a2a-a34c-4fb1-975d-c533bc0a5275
+2022-12-06T17:45:31.5716683Z x-ms-correlation-request-id   : 26a99a2a-a34c-4fb1-975d-c533bc0a5275
+2022-12-06T17:45:31.5717398Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174106Z:26a99a2a-a34c-4fb1-975d-c533bc0a5275
+2022-12-06T17:45:31.5717974Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5718313Z Date                          : Tue, 06 Dec 2022 17:41:06 GMT
+2022-12-06T17:45:31.5718478Z 
+2022-12-06T17:45:31.5718686Z Body:
+2022-12-06T17:45:31.5718778Z 
+2022-12-06T17:45:31.5718871Z 
+2022-12-06T17:45:31.5719167Z [0m
+2022-12-06T17:45:31.5719680Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5719898Z 
+2022-12-06T17:45:31.5720119Z HTTP Method:
+2022-12-06T17:45:31.5720335Z GET
+2022-12-06T17:45:31.5720436Z 
+2022-12-06T17:45:31.5720642Z Absolute Uri:
+2022-12-06T17:45:31.5721630Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5722146Z 
+2022-12-06T17:45:31.5722365Z Headers:
+2022-12-06T17:45:31.5722845Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5723061Z 
+2022-12-06T17:45:31.5723256Z Body:
+2022-12-06T17:45:31.5723362Z 
+2022-12-06T17:45:31.5723443Z 
+2022-12-06T17:45:31.5723729Z [0m
+2022-12-06T17:45:31.5724244Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5724471Z 
+2022-12-06T17:45:31.5724694Z Status Code:
+2022-12-06T17:45:31.5724931Z Accepted
+2022-12-06T17:45:31.5725029Z 
+2022-12-06T17:45:31.5725225Z Headers:
+2022-12-06T17:45:31.5725622Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5726042Z Pragma                        : no-cache
+2022-12-06T17:45:31.5727086Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5727913Z Retry-After                   : 15
+2022-12-06T17:45:31.5728428Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5728931Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5729384Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5729818Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5730290Z x-ms-ratelimit-remaining-subscription-reads: 11985
+2022-12-06T17:45:31.5730862Z x-ms-request-id               : 507e9145-474d-4781-95dd-aead2b99bdc4
+2022-12-06T17:45:31.5731456Z x-ms-correlation-request-id   : 507e9145-474d-4781-95dd-aead2b99bdc4
+2022-12-06T17:45:31.5732147Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174121Z:507e9145-474d-4781-95dd-aead2b99bdc4
+2022-12-06T17:45:31.5732723Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5733076Z Date                          : Tue, 06 Dec 2022 17:41:21 GMT
+2022-12-06T17:45:31.5733248Z 
+2022-12-06T17:45:31.5733442Z Body:
+2022-12-06T17:45:31.5733548Z 
+2022-12-06T17:45:31.5733627Z 
+2022-12-06T17:45:31.5733934Z [0m
+2022-12-06T17:45:31.5734435Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5734656Z 
+2022-12-06T17:45:31.5734881Z HTTP Method:
+2022-12-06T17:45:31.5735115Z GET
+2022-12-06T17:45:31.5735202Z 
+2022-12-06T17:45:31.5735427Z Absolute Uri:
+2022-12-06T17:45:31.5736397Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5737082Z 
+2022-12-06T17:45:31.5737291Z Headers:
+2022-12-06T17:45:31.5737803Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5738001Z 
+2022-12-06T17:45:31.5738213Z Body:
+2022-12-06T17:45:31.5738304Z 
+2022-12-06T17:45:31.5738461Z 
+2022-12-06T17:45:31.5738772Z [0m
+2022-12-06T17:45:31.5739270Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5739506Z 
+2022-12-06T17:45:31.5739714Z Status Code:
+2022-12-06T17:45:31.5739951Z Accepted
+2022-12-06T17:45:31.5740045Z 
+2022-12-06T17:45:31.5740258Z Headers:
+2022-12-06T17:45:31.5740637Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5741062Z Pragma                        : no-cache
+2022-12-06T17:45:31.5742128Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5742969Z Retry-After                   : 15
+2022-12-06T17:45:31.5743472Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5743993Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5744440Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5744877Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5745361Z x-ms-ratelimit-remaining-subscription-reads: 11984
+2022-12-06T17:45:31.5745914Z x-ms-request-id               : 06ac8903-4f87-41f1-b5cc-7ef6bc27b346
+2022-12-06T17:45:31.5746509Z x-ms-correlation-request-id   : 06ac8903-4f87-41f1-b5cc-7ef6bc27b346
+2022-12-06T17:45:31.5747221Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174136Z:06ac8903-4f87-41f1-b5cc-7ef6bc27b346
+2022-12-06T17:45:31.5747786Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5748139Z Date                          : Tue, 06 Dec 2022 17:41:36 GMT
+2022-12-06T17:45:31.5748305Z 
+2022-12-06T17:45:31.5748514Z Body:
+2022-12-06T17:45:31.5748603Z 
+2022-12-06T17:45:31.5748682Z 
+2022-12-06T17:45:31.5748987Z [0m
+2022-12-06T17:45:31.5749498Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5749722Z 
+2022-12-06T17:45:31.5749941Z HTTP Method:
+2022-12-06T17:45:31.5750154Z GET
+2022-12-06T17:45:31.5750243Z 
+2022-12-06T17:45:31.5750462Z Absolute Uri:
+2022-12-06T17:45:31.5751442Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5751955Z 
+2022-12-06T17:45:31.5752199Z Headers:
+2022-12-06T17:45:31.5752688Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5752898Z 
+2022-12-06T17:45:31.5753095Z Body:
+2022-12-06T17:45:31.5753185Z 
+2022-12-06T17:45:31.5753279Z 
+2022-12-06T17:45:31.5753569Z [0m
+2022-12-06T17:45:31.5754087Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5754307Z 
+2022-12-06T17:45:31.5754530Z Status Code:
+2022-12-06T17:45:31.5754752Z Accepted
+2022-12-06T17:45:31.5754862Z 
+2022-12-06T17:45:31.5755063Z Headers:
+2022-12-06T17:45:31.5755457Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5755877Z Pragma                        : no-cache
+2022-12-06T17:45:31.5756918Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5757741Z Retry-After                   : 15
+2022-12-06T17:45:31.5758364Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5758868Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5759323Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5759759Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5760226Z x-ms-ratelimit-remaining-subscription-reads: 11983
+2022-12-06T17:45:31.5760792Z x-ms-request-id               : 9c2cb12d-5918-4438-adc9-321ec068006f
+2022-12-06T17:45:31.5761440Z x-ms-correlation-request-id   : 9c2cb12d-5918-4438-adc9-321ec068006f
+2022-12-06T17:45:31.5762149Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174152Z:9c2cb12d-5918-4438-adc9-321ec068006f
+2022-12-06T17:45:31.5762731Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5763071Z Date                          : Tue, 06 Dec 2022 17:41:51 GMT
+2022-12-06T17:45:31.5763257Z 
+2022-12-06T17:45:31.5763451Z Body:
+2022-12-06T17:45:31.5763557Z 
+2022-12-06T17:45:31.5763637Z 
+2022-12-06T17:45:31.5763930Z [0m
+2022-12-06T17:45:31.5764444Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5764663Z 
+2022-12-06T17:45:31.5764887Z HTTP Method:
+2022-12-06T17:45:31.5765118Z GET
+2022-12-06T17:45:31.5765205Z 
+2022-12-06T17:45:31.5765412Z Absolute Uri:
+2022-12-06T17:45:31.5766389Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5766909Z 
+2022-12-06T17:45:31.5767126Z Headers:
+2022-12-06T17:45:31.5767622Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5767824Z 
+2022-12-06T17:45:31.5768043Z Body:
+2022-12-06T17:45:31.5768133Z 
+2022-12-06T17:45:31.5768213Z 
+2022-12-06T17:45:31.5768519Z [0m
+2022-12-06T17:45:31.5769019Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5769259Z 
+2022-12-06T17:45:31.5769469Z Status Code:
+2022-12-06T17:45:31.5769708Z Accepted
+2022-12-06T17:45:31.5769804Z 
+2022-12-06T17:45:31.5770016Z Headers:
+2022-12-06T17:45:31.5770397Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5770820Z Pragma                        : no-cache
+2022-12-06T17:45:31.5771871Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5772683Z Retry-After                   : 15
+2022-12-06T17:45:31.5773200Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5773719Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5774155Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5774591Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5775078Z x-ms-ratelimit-remaining-subscription-reads: 11982
+2022-12-06T17:45:31.5775629Z x-ms-request-id               : 287bee13-e309-4221-ae6c-c87791f53720
+2022-12-06T17:45:31.5776223Z x-ms-correlation-request-id   : 287bee13-e309-4221-ae6c-c87791f53720
+2022-12-06T17:45:31.5777022Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174207Z:287bee13-e309-4221-ae6c-c87791f53720
+2022-12-06T17:45:31.5777599Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5777949Z Date                          : Tue, 06 Dec 2022 17:42:07 GMT
+2022-12-06T17:45:31.5778119Z 
+2022-12-06T17:45:31.5778329Z Body:
+2022-12-06T17:45:31.5778418Z 
+2022-12-06T17:45:31.5778498Z 
+2022-12-06T17:45:31.5778803Z [0m
+2022-12-06T17:45:31.5779316Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5779535Z 
+2022-12-06T17:45:31.5779742Z HTTP Method:
+2022-12-06T17:45:31.5779970Z GET
+2022-12-06T17:45:31.5780056Z 
+2022-12-06T17:45:31.5780277Z Absolute Uri:
+2022-12-06T17:45:31.5781386Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5781902Z 
+2022-12-06T17:45:31.5782116Z Headers:
+2022-12-06T17:45:31.5782600Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5782798Z 
+2022-12-06T17:45:31.5783010Z Body:
+2022-12-06T17:45:31.5783177Z 
+2022-12-06T17:45:31.5783271Z 
+2022-12-06T17:45:31.5783573Z [0m
+2022-12-06T17:45:31.5784088Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5784311Z 
+2022-12-06T17:45:31.5784533Z Status Code:
+2022-12-06T17:45:31.5784755Z Accepted
+2022-12-06T17:45:31.5784867Z 
+2022-12-06T17:45:31.5785064Z Headers:
+2022-12-06T17:45:31.5785455Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5785863Z Pragma                        : no-cache
+2022-12-06T17:45:31.5786923Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5787959Z Retry-After                   : 15
+2022-12-06T17:45:31.5788463Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5788982Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5789441Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5789864Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5790347Z x-ms-ratelimit-remaining-subscription-reads: 11981
+2022-12-06T17:45:31.5790916Z x-ms-request-id               : 98b1b74b-b01a-4391-abc6-174a79867c11
+2022-12-06T17:45:31.5791498Z x-ms-correlation-request-id   : 98b1b74b-b01a-4391-abc6-174a79867c11
+2022-12-06T17:45:31.5792204Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174222Z:98b1b74b-b01a-4391-abc6-174a79867c11
+2022-12-06T17:45:31.5792786Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5793123Z Date                          : Tue, 06 Dec 2022 17:42:22 GMT
+2022-12-06T17:45:31.5793302Z 
+2022-12-06T17:45:31.5793497Z Body:
+2022-12-06T17:45:31.5793586Z 
+2022-12-06T17:45:31.5793681Z 
+2022-12-06T17:45:31.5793968Z [0m
+2022-12-06T17:45:31.5794484Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5794708Z 
+2022-12-06T17:45:31.5794930Z HTTP Method:
+2022-12-06T17:45:31.5795146Z GET
+2022-12-06T17:45:31.5795246Z 
+2022-12-06T17:45:31.5795452Z Absolute Uri:
+2022-12-06T17:45:31.5796436Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5796950Z 
+2022-12-06T17:45:31.5797169Z Headers:
+2022-12-06T17:45:31.5797664Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5797862Z 
+2022-12-06T17:45:31.5798059Z Body:
+2022-12-06T17:45:31.5798164Z 
+2022-12-06T17:45:31.5798242Z 
+2022-12-06T17:45:31.5798544Z [0m
+2022-12-06T17:45:31.5799043Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5799277Z 
+2022-12-06T17:45:31.5799484Z Status Code:
+2022-12-06T17:45:31.5799721Z Accepted
+2022-12-06T17:45:31.5799817Z 
+2022-12-06T17:45:31.5800033Z Headers:
+2022-12-06T17:45:31.5800411Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5800835Z Pragma                        : no-cache
+2022-12-06T17:45:31.5801870Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5802690Z Retry-After                   : 15
+2022-12-06T17:45:31.5803342Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5803863Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5804303Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5804741Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5805223Z x-ms-ratelimit-remaining-subscription-reads: 11980
+2022-12-06T17:45:31.5805775Z x-ms-request-id               : 04643180-ac59-4fa9-93a5-1b6d29894d35
+2022-12-06T17:45:31.5806458Z x-ms-correlation-request-id   : 04643180-ac59-4fa9-93a5-1b6d29894d35
+2022-12-06T17:45:31.5807149Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174237Z:04643180-ac59-4fa9-93a5-1b6d29894d35
+2022-12-06T17:45:31.5807729Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5808082Z Date                          : Tue, 06 Dec 2022 17:42:37 GMT
+2022-12-06T17:45:31.5808248Z 
+2022-12-06T17:45:31.5808457Z Body:
+2022-12-06T17:45:31.5808546Z 
+2022-12-06T17:45:31.5808629Z 
+2022-12-06T17:45:31.5808933Z [0m
+2022-12-06T17:45:31.5809432Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5809666Z 
+2022-12-06T17:45:31.5809873Z HTTP Method:
+2022-12-06T17:45:31.5810103Z GET
+2022-12-06T17:45:31.5810189Z 
+2022-12-06T17:45:31.5810409Z Absolute Uri:
+2022-12-06T17:45:31.5811380Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5811910Z 
+2022-12-06T17:45:31.5812112Z Headers:
+2022-12-06T17:45:31.5812605Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5812803Z 
+2022-12-06T17:45:31.5813015Z Body:
+2022-12-06T17:45:31.5813105Z 
+2022-12-06T17:45:31.5813184Z 
+2022-12-06T17:45:31.5813487Z [0m
+2022-12-06T17:45:31.5814000Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5814222Z 
+2022-12-06T17:45:31.5814443Z Status Code:
+2022-12-06T17:45:31.5814665Z Accepted
+2022-12-06T17:45:31.5814761Z 
+2022-12-06T17:45:31.5814974Z Headers:
+2022-12-06T17:45:31.5815366Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5815774Z Pragma                        : no-cache
+2022-12-06T17:45:31.5816938Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5817772Z Retry-After                   : 15
+2022-12-06T17:45:31.5818273Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5818828Z x-ms-ratelimit-remaining-subscription-reads: 11979
+2022-12-06T17:45:31.5819320Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5819757Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5820198Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5820721Z x-ms-request-id               : 561e3881-2e60-420a-90e8-e3539d6ec546
+2022-12-06T17:45:31.5821299Z x-ms-correlation-request-id   : 561e3881-2e60-420a-90e8-e3539d6ec546
+2022-12-06T17:45:31.5822005Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174252Z:561e3881-2e60-420a-90e8-e3539d6ec546
+2022-12-06T17:45:31.5822580Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5822923Z Date                          : Tue, 06 Dec 2022 17:42:52 GMT
+2022-12-06T17:45:31.5823105Z 
+2022-12-06T17:45:31.5823300Z Body:
+2022-12-06T17:45:31.5823390Z 
+2022-12-06T17:45:31.5823485Z 
+2022-12-06T17:45:31.5823775Z [0m
+2022-12-06T17:45:31.5824291Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5824512Z 
+2022-12-06T17:45:31.5824734Z HTTP Method:
+2022-12-06T17:45:31.5824949Z GET
+2022-12-06T17:45:31.5825051Z 
+2022-12-06T17:45:31.5825255Z Absolute Uri:
+2022-12-06T17:45:31.5826359Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5826875Z 
+2022-12-06T17:45:31.5827095Z Headers:
+2022-12-06T17:45:31.5827571Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5827785Z 
+2022-12-06T17:45:31.5827983Z Body:
+2022-12-06T17:45:31.5828154Z 
+2022-12-06T17:45:31.5828234Z 
+2022-12-06T17:45:31.5828535Z [0m
+2022-12-06T17:45:31.5829055Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5829273Z 
+2022-12-06T17:45:31.5829496Z Status Code:
+2022-12-06T17:45:31.5829732Z Accepted
+2022-12-06T17:45:31.5829829Z 
+2022-12-06T17:45:31.5830025Z Headers:
+2022-12-06T17:45:31.5830416Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5830841Z Pragma                        : no-cache
+2022-12-06T17:45:31.5831888Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5832709Z Retry-After                   : 15
+2022-12-06T17:45:31.5833228Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5833735Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5834186Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5834622Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5835088Z x-ms-ratelimit-remaining-subscription-reads: 11978
+2022-12-06T17:45:31.5835656Z x-ms-request-id               : 8603f048-00a4-4ed8-ab1d-3e5b8ad6a8be
+2022-12-06T17:45:31.5836252Z x-ms-correlation-request-id   : 8603f048-00a4-4ed8-ab1d-3e5b8ad6a8be
+2022-12-06T17:45:31.5836945Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174308Z:8603f048-00a4-4ed8-ab1d-3e5b8ad6a8be
+2022-12-06T17:45:31.5837529Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5837880Z Date                          : Tue, 06 Dec 2022 17:43:07 GMT
+2022-12-06T17:45:31.5838046Z 
+2022-12-06T17:45:31.5838255Z Body:
+2022-12-06T17:45:31.5838345Z 
+2022-12-06T17:45:31.5838424Z 
+2022-12-06T17:45:31.5838728Z [0m
+2022-12-06T17:45:31.5839226Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5839465Z 
+2022-12-06T17:45:31.5839674Z HTTP Method:
+2022-12-06T17:45:31.5839905Z GET
+2022-12-06T17:45:31.5839991Z 
+2022-12-06T17:45:31.5840213Z Absolute Uri:
+2022-12-06T17:45:31.5841180Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5841867Z 
+2022-12-06T17:45:31.5842077Z Headers:
+2022-12-06T17:45:31.5842583Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5842783Z 
+2022-12-06T17:45:31.5842994Z Body:
+2022-12-06T17:45:31.5843085Z 
+2022-12-06T17:45:31.5843163Z 
+2022-12-06T17:45:31.5843469Z [0m
+2022-12-06T17:45:31.5843986Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5844209Z 
+2022-12-06T17:45:31.5844416Z Status Code:
+2022-12-06T17:45:31.5844653Z Accepted
+2022-12-06T17:45:31.5844751Z 
+2022-12-06T17:45:31.5844963Z Headers:
+2022-12-06T17:45:31.5845356Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5845765Z Pragma                        : no-cache
+2022-12-06T17:45:31.5846815Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5847747Z Retry-After                   : 15
+2022-12-06T17:45:31.5848246Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5848772Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5849228Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5849651Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5850139Z x-ms-ratelimit-remaining-subscription-reads: 11977
+2022-12-06T17:45:31.5850693Z x-ms-request-id               : 8d19ef64-d902-43ac-a1d1-b974e6036d40
+2022-12-06T17:45:31.5851375Z x-ms-correlation-request-id   : 8d19ef64-d902-43ac-a1d1-b974e6036d40
+2022-12-06T17:45:31.5852084Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174323Z:8d19ef64-d902-43ac-a1d1-b974e6036d40
+2022-12-06T17:45:31.5852680Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5853034Z Date                          : Tue, 06 Dec 2022 17:43:23 GMT
+2022-12-06T17:45:31.5853198Z 
+2022-12-06T17:45:31.5853409Z Body:
+2022-12-06T17:45:31.5853499Z 
+2022-12-06T17:45:31.5853599Z 
+2022-12-06T17:45:31.5853893Z [0m
+2022-12-06T17:45:31.5854407Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5854625Z 
+2022-12-06T17:45:31.5854847Z HTTP Method:
+2022-12-06T17:45:31.5855062Z GET
+2022-12-06T17:45:31.5855148Z 
+2022-12-06T17:45:31.5855371Z Absolute Uri:
+2022-12-06T17:45:31.5856358Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5857023Z 
+2022-12-06T17:45:31.5857245Z Headers:
+2022-12-06T17:45:31.5857749Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5857965Z 
+2022-12-06T17:45:31.5858162Z Body:
+2022-12-06T17:45:31.5858266Z 
+2022-12-06T17:45:31.5858347Z 
+2022-12-06T17:45:31.5858640Z [0m
+2022-12-06T17:45:31.5859158Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5859382Z 
+2022-12-06T17:45:31.5859606Z Status Code:
+2022-12-06T17:45:31.5859843Z Accepted
+2022-12-06T17:45:31.5859940Z 
+2022-12-06T17:45:31.5860135Z Headers:
+2022-12-06T17:45:31.5860530Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5860951Z Pragma                        : no-cache
+2022-12-06T17:45:31.5862005Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5862832Z Retry-After                   : 15
+2022-12-06T17:45:31.5863346Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5863847Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5864301Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5864737Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5865210Z x-ms-ratelimit-remaining-subscription-reads: 11976
+2022-12-06T17:45:31.5865777Z x-ms-request-id               : 71ecad7a-5c82-4254-b516-88fa924afedf
+2022-12-06T17:45:31.5866374Z x-ms-correlation-request-id   : 71ecad7a-5c82-4254-b516-88fa924afedf
+2022-12-06T17:45:31.5867065Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174338Z:71ecad7a-5c82-4254-b516-88fa924afedf
+2022-12-06T17:45:31.5867643Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5868000Z Date                          : Tue, 06 Dec 2022 17:43:38 GMT
+2022-12-06T17:45:31.5868166Z 
+2022-12-06T17:45:31.5868359Z Body:
+2022-12-06T17:45:31.5868468Z 
+2022-12-06T17:45:31.5868547Z 
+2022-12-06T17:45:31.5868851Z [0m
+2022-12-06T17:45:31.5869347Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5869566Z 
+2022-12-06T17:45:31.5869789Z HTTP Method:
+2022-12-06T17:45:31.5870023Z GET
+2022-12-06T17:45:31.5870109Z 
+2022-12-06T17:45:31.5870436Z Absolute Uri:
+2022-12-06T17:45:31.5871412Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5871940Z 
+2022-12-06T17:45:31.5872143Z Headers:
+2022-12-06T17:45:31.5872635Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5872833Z 
+2022-12-06T17:45:31.5873118Z Body:
+2022-12-06T17:45:31.5873207Z 
+2022-12-06T17:45:31.5873287Z 
+2022-12-06T17:45:31.5873599Z [0m
+2022-12-06T17:45:31.5874100Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5874341Z 
+2022-12-06T17:45:31.5874549Z Status Code:
+2022-12-06T17:45:31.5874785Z Accepted
+2022-12-06T17:45:31.5874880Z 
+2022-12-06T17:45:31.5875092Z Headers:
+2022-12-06T17:45:31.5875468Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5875891Z Pragma                        : no-cache
+2022-12-06T17:45:31.5876951Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5877773Z Retry-After                   : 15
+2022-12-06T17:45:31.5878271Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5878796Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5879232Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5879669Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5880150Z x-ms-ratelimit-remaining-subscription-reads: 11975
+2022-12-06T17:45:31.5880699Z x-ms-request-id               : cd4adada-ce73-47ad-86fb-20f031f4fdcd
+2022-12-06T17:45:31.5881291Z x-ms-correlation-request-id   : cd4adada-ce73-47ad-86fb-20f031f4fdcd
+2022-12-06T17:45:31.5881992Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174354Z:cd4adada-ce73-47ad-86fb-20f031f4fdcd
+2022-12-06T17:45:31.5882560Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5882915Z Date                          : Tue, 06 Dec 2022 17:43:53 GMT
+2022-12-06T17:45:31.5883080Z 
+2022-12-06T17:45:31.5883288Z Body:
+2022-12-06T17:45:31.5883379Z 
+2022-12-06T17:45:31.5883457Z 
+2022-12-06T17:45:31.5883762Z [0m
+2022-12-06T17:45:31.5884277Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5884500Z 
+2022-12-06T17:45:31.5884721Z HTTP Method:
+2022-12-06T17:45:31.5884934Z GET
+2022-12-06T17:45:31.5885021Z 
+2022-12-06T17:45:31.5885240Z Absolute Uri:
+2022-12-06T17:45:31.5886222Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5886738Z 
+2022-12-06T17:45:31.5886958Z Headers:
+2022-12-06T17:45:31.5887437Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5887649Z 
+2022-12-06T17:45:31.5887845Z Body:
+2022-12-06T17:45:31.5887936Z 
+2022-12-06T17:45:31.5888030Z 
+2022-12-06T17:45:31.5888318Z [0m
+2022-12-06T17:45:31.5888835Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5889055Z 
+2022-12-06T17:45:31.5889279Z Status Code:
+2022-12-06T17:45:31.5889500Z Accepted
+2022-12-06T17:45:31.5889613Z 
+2022-12-06T17:45:31.5889811Z Headers:
+2022-12-06T17:45:31.5890200Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5890608Z Pragma                        : no-cache
+2022-12-06T17:45:31.5891664Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5892574Z Retry-After                   : 15
+2022-12-06T17:45:31.5893086Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5893591Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5894045Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5894482Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5894947Z x-ms-ratelimit-remaining-subscription-reads: 11974
+2022-12-06T17:45:31.5895512Z x-ms-request-id               : d08dbf23-1439-4e8f-b5a6-5b43cae07a39
+2022-12-06T17:45:31.5896164Z x-ms-correlation-request-id   : d08dbf23-1439-4e8f-b5a6-5b43cae07a39
+2022-12-06T17:45:31.5896963Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174409Z:d08dbf23-1439-4e8f-b5a6-5b43cae07a39
+2022-12-06T17:45:31.5897551Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5897887Z Date                          : Tue, 06 Dec 2022 17:44:08 GMT
+2022-12-06T17:45:31.5898069Z 
+2022-12-06T17:45:31.5898260Z Body:
+2022-12-06T17:45:31.5898370Z 
+2022-12-06T17:45:31.5898451Z 
+2022-12-06T17:45:31.5898740Z [0m
+2022-12-06T17:45:31.5899252Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5899474Z 
+2022-12-06T17:45:31.5899696Z HTTP Method:
+2022-12-06T17:45:31.5899924Z GET
+2022-12-06T17:45:31.5900011Z 
+2022-12-06T17:45:31.5900217Z Absolute Uri:
+2022-12-06T17:45:31.5901192Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5901708Z 
+2022-12-06T17:45:31.5901923Z Headers:
+2022-12-06T17:45:31.5902416Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5902615Z 
+2022-12-06T17:45:31.5902826Z Body:
+2022-12-06T17:45:31.5902918Z 
+2022-12-06T17:45:31.5902997Z 
+2022-12-06T17:45:31.5903297Z [0m
+2022-12-06T17:45:31.5903799Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5904039Z 
+2022-12-06T17:45:31.5904245Z Status Code:
+2022-12-06T17:45:31.5904483Z Accepted
+2022-12-06T17:45:31.5904580Z 
+2022-12-06T17:45:31.5904792Z Headers:
+2022-12-06T17:45:31.5905167Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5905588Z Pragma                        : no-cache
+2022-12-06T17:45:31.5906652Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5907462Z Retry-After                   : 15
+2022-12-06T17:45:31.5907975Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5908490Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5908923Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5909365Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5909846Z x-ms-ratelimit-remaining-subscription-reads: 11973
+2022-12-06T17:45:31.5910400Z x-ms-request-id               : 88224b90-0b3f-415e-bc8c-7d4df14a24d7
+2022-12-06T17:45:31.5910995Z x-ms-correlation-request-id   : 88224b90-0b3f-415e-bc8c-7d4df14a24d7
+2022-12-06T17:45:31.5911701Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174424Z:88224b90-0b3f-415e-bc8c-7d4df14a24d7
+2022-12-06T17:45:31.5912261Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5912615Z Date                          : Tue, 06 Dec 2022 17:44:24 GMT
+2022-12-06T17:45:31.5912779Z 
+2022-12-06T17:45:31.5912988Z Body:
+2022-12-06T17:45:31.5913078Z 
+2022-12-06T17:45:31.5913156Z 
+2022-12-06T17:45:31.5913461Z [0m
+2022-12-06T17:45:31.5913955Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5914188Z 
+2022-12-06T17:45:31.5914395Z HTTP Method:
+2022-12-06T17:45:31.5914627Z GET
+2022-12-06T17:45:31.5914713Z 
+2022-12-06T17:45:31.5915023Z Absolute Uri:
+2022-12-06T17:45:31.5915998Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5916525Z 
+2022-12-06T17:45:31.5916743Z Headers:
+2022-12-06T17:45:31.5917220Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5917419Z 
+2022-12-06T17:45:31.5917707Z Body:
+2022-12-06T17:45:31.5917797Z 
+2022-12-06T17:45:31.5917890Z 
+2022-12-06T17:45:31.5918190Z [0m
+2022-12-06T17:45:31.5918705Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5918924Z 
+2022-12-06T17:45:31.5919147Z Status Code:
+2022-12-06T17:45:31.5919450Z Accepted
+2022-12-06T17:45:31.5919560Z 
+2022-12-06T17:45:31.5919759Z Headers:
+2022-12-06T17:45:31.5920149Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5920561Z Pragma                        : no-cache
+2022-12-06T17:45:31.5921614Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5922436Z Retry-After                   : 15
+2022-12-06T17:45:31.5922918Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5923441Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5923891Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5924310Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5924790Z x-ms-ratelimit-remaining-subscription-reads: 11972
+2022-12-06T17:45:31.5925359Z x-ms-request-id               : 14fee6dd-fa53-4e26-9d3a-3773cb1f4264
+2022-12-06T17:45:31.5925935Z x-ms-correlation-request-id   : 14fee6dd-fa53-4e26-9d3a-3773cb1f4264
+2022-12-06T17:45:31.5926648Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174439Z:14fee6dd-fa53-4e26-9d3a-3773cb1f4264
+2022-12-06T17:45:31.5927221Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5927558Z Date                          : Tue, 06 Dec 2022 17:44:39 GMT
+2022-12-06T17:45:31.5927737Z 
+2022-12-06T17:45:31.5927929Z Body:
+2022-12-06T17:45:31.5928018Z 
+2022-12-06T17:45:31.5928112Z 
+2022-12-06T17:45:31.5928401Z [0m
+2022-12-06T17:45:31.5928912Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5929134Z 
+2022-12-06T17:45:31.5929359Z HTTP Method:
+2022-12-06T17:45:31.5929575Z GET
+2022-12-06T17:45:31.5929677Z 
+2022-12-06T17:45:31.5929881Z Absolute Uri:
+2022-12-06T17:45:31.5930874Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5931392Z 
+2022-12-06T17:45:31.5931609Z Headers:
+2022-12-06T17:45:31.5932100Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5932300Z 
+2022-12-06T17:45:31.5932495Z Body:
+2022-12-06T17:45:31.5932600Z 
+2022-12-06T17:45:31.5932680Z 
+2022-12-06T17:45:31.5932980Z [0m
+2022-12-06T17:45:31.5933483Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5933703Z 
+2022-12-06T17:45:31.5933927Z Status Code:
+2022-12-06T17:45:31.5934166Z Accepted
+2022-12-06T17:45:31.5934262Z 
+2022-12-06T17:45:31.5934475Z Headers:
+2022-12-06T17:45:31.5934851Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5935272Z Pragma                        : no-cache
+2022-12-06T17:45:31.5936312Z Location                      : https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5937323Z Retry-After                   : 15
+2022-12-06T17:45:31.5937844Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5938366Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5938802Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5939238Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5939705Z x-ms-ratelimit-remaining-subscription-reads: 11971
+2022-12-06T17:45:31.5940271Z x-ms-request-id               : bcc2391f-3f17-474f-8734-4e235c8bab8f
+2022-12-06T17:45:31.5940957Z x-ms-correlation-request-id   : bcc2391f-3f17-474f-8734-4e235c8bab8f
+2022-12-06T17:45:31.5941649Z x-ms-routing-request-id       : JIOINDIAWEST:20221206T174455Z:bcc2391f-3f17-474f-8734-4e235c8bab8f
+2022-12-06T17:45:31.5942229Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5942580Z Date                          : Tue, 06 Dec 2022 17:44:54 GMT
+2022-12-06T17:45:31.5942745Z 
+2022-12-06T17:45:31.5942956Z Body:
+2022-12-06T17:45:31.5943051Z 
+2022-12-06T17:45:31.5943129Z 
+2022-12-06T17:45:31.5943433Z [0m
+2022-12-06T17:45:31.5943933Z [33;1mDEBUG: ============================ HTTP REQUEST ============================
+2022-12-06T17:45:31.5944166Z 
+2022-12-06T17:45:31.5944374Z HTTP Method:
+2022-12-06T17:45:31.5944605Z GET
+2022-12-06T17:45:31.5944692Z 
+2022-12-06T17:45:31.5944913Z Absolute Uri:
+2022-12-06T17:45:31.5945882Z https://management.azure.com/subscriptions/c19de847-d482-4e21-b129-d20f7c168cf9/resourceGroups/rg-devgroup-dr-si/providers/Microsoft.Web/sites/recordentdevappbackenddrr/operationresults/7604c79c-4976-4f0c-ad3b-7b5f1c61bca0?api-version=2021-01-15
+2022-12-06T17:45:31.5946414Z 
+2022-12-06T17:45:31.5946613Z Headers:
+2022-12-06T17:45:31.5947108Z x-ms-client-request-id        : 06e14f91-55ea-49fd-b3f4-11ec0925aa54
+2022-12-06T17:45:31.5947306Z 
+2022-12-06T17:45:31.5947516Z Body:
+2022-12-06T17:45:31.5947606Z 
+2022-12-06T17:45:31.5947685Z 
+2022-12-06T17:45:31.5947987Z [0m
+2022-12-06T17:45:31.5948502Z [33;1mDEBUG: ============================ HTTP RESPONSE ============================
+2022-12-06T17:45:31.5948727Z 
+2022-12-06T17:45:31.5948951Z Status Code:
+2022-12-06T17:45:31.5949195Z InternalServerError
+2022-12-06T17:45:31.5949316Z 
+2022-12-06T17:45:31.5949529Z Headers:
+2022-12-06T17:45:31.5949920Z Cache-Control                 : no-cache
+2022-12-06T17:45:31.5950326Z Pragma                        : no-cache
+2022-12-06T17:45:31.5950844Z Strict-Transport-Security     : max-age=31536000; includeSubDomains
+2022-12-06T17:45:31.5951365Z Server                        : Microsoft-IIS/10.0
+2022-12-06T17:45:31.5951801Z X-AspNet-Version              : 4.0.30319
+2022-12-06T17:45:31.5952263Z X-Powered-By                  : ASP.NET
+2022-12-06T17:45:31.5952686Z x-ms-failure-cause            : service
+2022-12-06T17:45:31.5953176Z x-ms-ratelimit-remaining-subscription-reads: 11999
+2022-12-06T17:45:31.5953742Z x-ms-request-id               : 8056391c-b442-42ee-9be6-f8131487187b
+2022-12-06T17:45:31.5954318Z x-ms-correlation-request-id   : 8056391c-b442-42ee-9be6-f8131487187b
+2022-12-06T17:45:31.5955018Z x-ms-routing-request-id       : WESTINDIA:20221206T174531Z:8056391c-b442-42ee-9be6-f8131487187b
+2022-12-06T17:45:31.5955588Z X-Content-Type-Options        : nosniff
+2022-12-06T17:45:31.5955925Z Date                          : Tue, 06 Dec 2022 17:45:31 GMT
+2022-12-06T17:45:31.5956248Z Connection                    : close
+2022-12-06T17:45:31.5956371Z 
+2022-12-06T17:45:31.5956578Z Body:
+2022-12-06T17:45:31.5956785Z {
+2022-12-06T17:45:31.5956998Z   "Code": null,
+2022-12-06T17:45:31.5957866Z   "Message": "Access denied while accessing the path C:\\Resources\\directory\\247caac522534e198f346239f86c13b3.ControllerRole.BackupRestore\\aaab3865-a896-4532-a07d-e94ba554deaf\\fs\\LogFiles\\webssh\\.log",
+2022-12-06T17:45:31.5958449Z   "Target": null,
+2022-12-06T17:45:31.5958682Z   "Details": [
+2022-12-06T17:45:31.5958902Z     {
+2022-12-06T17:45:31.5959735Z       "Message": "Access denied while accessing the path C:\\Resources\\directory\\247caac522534e198f346239f86c13b3.ControllerRole.BackupRestore\\aaab3865-a896-4532-a07d-e94ba554deaf\\fs\\LogFiles\\webssh\\.log"
+2022-12-06T17:45:31.5960378Z     },
+2022-12-06T17:45:31.5960586Z     {
+2022-12-06T17:45:31.5960794Z       "Code": null
+2022-12-06T17:45:31.5961021Z     },
+2022-12-06T17:45:31.5961225Z     {
+2022-12-06T17:45:31.5961439Z       "ErrorEntity": {
+2022-12-06T17:45:31.5961712Z         "ExtendedCode": "01021",
+2022-12-06T17:45:31.5962058Z         "MessageTemplate": "Internal server error occurred. {0}",
+2022-12-06T17:45:31.5962423Z         "Parameters": [],
+2022-12-06T17:45:31.5962685Z         "InnerErrors": [],
+2022-12-06T17:45:31.5962926Z         "Details": [],
+2022-12-06T17:45:31.5963172Z         "Code": null,
+2022-12-06T17:45:31.5964064Z         "Message": "Access denied while accessing the path C:\\Resources\\directory\\247caac522534e198f346239f86c13b3.ControllerRole.BackupRestore\\aaab3865-a896-4532-a07d-e94ba554deaf\\fs\\LogFiles\\webssh\\.log"
+2022-12-06T17:45:31.5964610Z       }
+2022-12-06T17:45:31.5964819Z     }
+2022-12-06T17:45:31.5965024Z   ],
+2022-12-06T17:45:31.5965242Z   "Innererror": null
+2022-12-06T17:45:31.5965476Z }
+2022-12-06T17:45:31.5965557Z 
+2022-12-06T17:45:31.5965865Z [0m
+2022-12-06T17:45:31.5966513Z [33;1mDEBUG: 17:45:31 - [ConfigManager] Got nothing from [EnableDataCollection], Module = [], Cmdlet = []. Returning default value [True].[0m
+2022-12-06T17:45:31.6504011Z [31;1mRestore-AzWebAppSnapshot: [0m/home/vsts/work/1/s/Recordent_DR/Powershell/App service Retore.ps1:7
+2022-12-06T17:45:31.6504669Z [36;1mLine |
+2022-12-06T17:45:31.6505266Z [36;1m   7 | [0m [36;1mRestore-AzWebAppSnapshot -ResourceGroupName $D_backendresourceGroupNa[0m …
+2022-12-06T17:45:31.6505958Z [36;1m     | [31;1m ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2022-12-06T17:45:31.6506631Z [31;1m[36;1m     | [31;1mLong running operation failed with status 'InternalServerError'.
+2022-12-06T17:45:31.6507084Z [0m
+2022-12-06T17:45:31.7353562Z ##[error]PowerShell exited with code '1'.
+2022-12-06T17:45:31.7394411Z ##[section]Finishing: Azure PowerShell script: FilePath

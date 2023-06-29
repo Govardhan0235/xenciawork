@@ -1,0 +1,20 @@
+1) We need to Update the Terraform tfvars file. -Done
+2) we need to create another app services. - Done
+3) PowerShell scripts.
+   a) Snapshots restores - Done
+4) We need to check app service plan is exist no need to create if not need to create. - Not yet Started
+5) we need to write terraform script powerbi is enabled. - Done
+6) Import option. - Not Yet Started
+7) Github option in Static web app. - Looking into it
+ a) working on Dot net version - In Progress
+  b) github option. - In Progress
+
+
+
+az webapp deployment source config-local-git -- name ElGGAP2 --resource-group ELGGApp2
+
+
+az webapp deployment list-publishing-credentials --name ElGGAP2 --resource-group ELGGApp2
+
+
+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

@@ -1,0 +1,29 @@
+a)For Restore App service Using Blob Storage we need some pre-requisties :
+
+  1) StorageAccountName 
+  2) StorageAccountResourcegroup name
+  3) BlobContainerName 
+  4) BlobName
+
+
+b)For Front Door we needsome pre-requisties:
+
+  1)Backendpoolname
+  2)Backens Host name
+  3)Frontdoorname
+  4)Resourcegroupname 
+  5)RoutingRuleName 
+  6)FrontendEndpointHostname
+  7)FrontendEndpointName 
+  8)LoadBalancingSetting
+  9)HealthProbeSetting
+
+
+c)For Appsetting in app service we needsome pre-requisties:
+
+  1) Resourcegroup Name
+  2) App service name
+
+
+
+

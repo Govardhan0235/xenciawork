@@ -1,0 +1,19 @@
+Create an ingress controller in Azure Kubernetes Service (AKS)
+
+This command is to install ingress controller in AKS cluster for public ingress controller.
+
+
+
+NAMESPACE=ingress-basic
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx \
+  --create-namespace \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-health-probe-request-      path"=/healthz 
+  --set controller.service.externalTrafficPolicy=Local
+
+
+Reference:
+https://learn.microsoft.com/en-us/azure/aks/ingress-basic?tabs=azure-cli

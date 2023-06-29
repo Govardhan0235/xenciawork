@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-celery-worker
+  labels:
+    deployment: user-celery-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-celery-worker
+  template:
+    metadata:
+      labels:
+        app: user-celery-worker
+    spec:
+      containers:
+        - name: user-celery-worker
+          image: {{ .Values.imageRepository }}:{{ .Values.imageTag }}
+          command: ['celery', '-A', 'microlearning', 'worker', '-l', 'INFO']
+          resources:
+            requests:
+              cpu: 700m
+          

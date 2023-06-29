@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: courseservice
+  labels:
+    deployment: courseservice
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: courseservice
+  template:
+    metadata:
+      labels:
+        app: courseservice
+    spec:
+      containers:
+        - name: courseservice
+          image: {{ .Values.imageRepository }}:{{ .Values.imageTag }}
+          command: ['/bin/bash', 'run.sh'] # runs migrations and starts the server
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: 1100m
+          env:
+            - name: REDIS_HOST
+              value: redis-service
+            - name: DJANGO_SETTINGS_MODULE
+              value: microlearning_template_service.settings.staging
+            - name: AZURE_STORAGE_NAME
+              value: "kredo"
+            - name: AZURE_STORAGE_KEY
+              value: "vmfdiRbWu2JYvDOju60M1lzavlkXiMsNcwRKM5P/QuCblFDeMqzSWzAuJck+6EmA7L4bvky5enaEdUTxH80tpg=="
+            - name: SENDGRID_API_KEY
+              value: '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'
+            - name: FROM_MAIL_ADDRESS
+              value: 'noreply@kredoapp.com'
+            - name: COURSE_PUBLISH_TEMPLATE_ID
+              value: 'd-48b9aba1b1e244f9a11b10cabbe66162'
+            - name: COURSE_ENROLL_TEMPLATE_ID
+              value: 'd-6ed1e455616249aa9cd6f68225464f08'
+            - name: BADGE_TEMPLATE_ID
+              value: 'd-31cd1c3da356471a8901ed522ce4511f'
+            - name: CERTIFICATE_TEMPLATE_ID
+              value: 'd-bd4eb666827b475ca839e0b36936c79b'
+            - name: THREAD_NOTIFICATION_TEMPLATE_ID
+              value: 'd-38d1699a8863415884e166bfd48533aa'
+            - name: SPACED_REPETITION_TEMPLATE_ID
+              value: 'd-fc35840aa58f4dc8bdc8d03d0a9c4753'
+            - name: COURSE_OVERDUE_TEMPLATE_ID
+              value: 'd-b9ed2ee8591c4cb78353c31b4cafa514'
+            - name: COURSE_UNASSIGN_TEMPLATE_ID
+              value: 'd-648b50cbc36344d4b41ceee6bf78fb3d'
+            - name: LEARNING_PATH_UNASSIGN_TEMPLATE_ID
+              value: 'd-029661c1850d40aeaf1b979162dc2b38'
+            - name: LEARNING_PATH_ENROLL_TEMPLATE_ID
+              value: 'd-ac1bc6cce8e048be8ff56de77318a1b8'
+            - name: COURSE_CO_AUTHOR_TEMPLATE_ID
+              value: 'd-1c5e955a070c4557ae728c1c2bf670f6'
+            - name: MULTIPLE_CONTENT_ASSIGN_TEMPLATE_ID
+              value: 'd-637f1427b85971dc46d9fbff'
+            - name: VIMEO_CLIENT_ID
+              value: 'c2b72ad564ce2bb744f3d44a4cc19520456c5758'
+            - name: VIMEO_CLIENT_SECRET
+              value: 'r8dMe7p2hqfiJ5unsowQtdgO2vjs0hMxS+64no1p9IXtAm4o2CBJ7rehVKb8KFqbjgVAZR7CegzRFw5NAm5FVq5Vof1eE4A7SD5a6towwhc5J6gmfOERfvWmdve/t9uG'
+            - name: VIMEO_ACCESS_TOKEN
+              value: '497cc28f817efd0797bc54af522e6852'
+            - name: KEYCLOAK_SERVER_URL
+              value: 'https://staging-login.kredoapp.com/'
+            - name: KEYCLOAK_NAME
+              value: 'kredo-staging'
+            - name: KEYCLOAK_SECRET_KEY
+              value: 'cc0b9809-cb09-4d3c-8521-04ac3afb1230'
+            - name: ENVIRONMENT
+              value: 'staging'

@@ -1,0 +1,40 @@
+
+1) For PowerShell script we need some details like:
+    a) As we dissued before, Client have backup conf. 
+    b) we need to create stoarge account in portal for storing Backup files (or) client will provide stoarge account details for restore app service.
+    c) If Client will provide stoarge account details. We need some details like:
+          1) storageAccountName 
+          2) storageAccountResourcegroup name
+          3) blobContainerName 
+          4) blobName
+
+   Hello Muru 
+   
+   Please Provide Subscription Id, Subscription Name for Recordent.
+
+Subscrition Id = "c19de847-d482-4e21-b129-d20f7c168cf9"
+
+Subscription Name = Microsoft Azure Sponsorship
+
+Client ID : a5ceffa2-5abd-4688-a235-7e36a2876f0e
+Tenant ID : 1b82cd4b-d2c9-466a-8702-655b07322f05
+Secret : FMF8Q~bo6Gd5_0XRip1wK1XGLzW4F.KHUChBtb6r
+
+
+
+
+1)resource_group_name  = "Recordent"
+
+2)location = "eastus2"
+
+3)app_service_plan_name = "ASP-devgroupRG-9415"
+
+4)appservicename = "recordentdevappbacken"
+
+5)static_webapp_name = "recdevstaticwebapp" 
+
+6)powerBiembedded = "powerbidev" 
+
+7)Redis_cache = "recdevredis" 
+
+

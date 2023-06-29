@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-celery-beat
+  labels:
+    deployment: user-celery-beat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-celery-beat
+  template:
+    metadata:
+      labels:
+        app: user-celery-beat
+    spec:
+      containers:
+        - name: user-celery-beat
+          image: {{ .Values.imageRepository }}:{{ .Values.imageTag }}
+          command: ['celery', '-A', 'microlearning', 'beat', '-l', 'DEBUG']
+          resources:
+            requests:
+              cpu: 300m

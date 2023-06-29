@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: course-celery-beat
+  labels:
+    deployment: course-celery-beat
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: course-celery-beat
+  template:
+    metadata:
+      labels:
+        app: course-celery-beat
+    spec:
+      containers:
+        - name: course-celery-beat
+          image: {{ .Values.imageRepository }}:{{ .Values.imageTag }}
+          command: ['celery', '-A', 'microlearning_template_service', 'beat', '-l', 'DEBUG']
+          resources:
+            requests:
+              cpu: 700m
+          env:
+            - name: REDIS_HOST
+              value: redis-service
+            - name: environment
+              value: 'microlearning_template_service.settings.staging'
+            - name: DJANGO_SETTINGS_MODULE
+              value: 'microlearning_template_service.settings.staging'
+            - name: SENDGRID_API_KEY
+              value: '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'
+            - name: COURSE_ENROLL_TEMPLATE_ID
+              value: 'd-6ed1e455616249aa9cd6f68225464f08'
+            - name: COURSE_OVERDUE_TEMPLATE_ID
+              value: 'd-b9ed2ee8591c4cb78353c31b4cafa514'
+            - name: SPACED_REPETITION_TEMPLATE_ID
+              value: 'd-fc35840aa58f4dc8bdc8d03d0a9c4753'
+            - name: BADGE_TEMPLATE_ID
+              value: 'd-31cd1c3da356471a8901ed522ce4511f'
+            - name: CERTIFICATE_TEMPLATE_ID
+              value: 'd-bd4eb666827b475ca839e0b36936c79b'
+            - name: THREAD_NOTIFICATION_TEMPLATE_ID
+              value: 'd-38d1699a8863415884e166bfd48533aa'
+            - name: AZURE_STORAGE_NAME
+              value: 'kredo'
+            - name: AZURE_STORAGE_KEY
+              value: 'vmfdiRbWu2JYvDOju60M1lzavlkXiMsNcwRKM5P/QuCblFDeMqzSWzAuJck+6EmA7L4bvky5enaEdUTxH80tpg=='
+            - name: COURSE_COMPLETION_TEMPLATE_ID
+              value: 'd-29336901815a439cb585b9a947646fc8'
+            - name: REPORT_GENERATED_TEMPLATE_ID
+              value: 'd-894c24273c2e4137b704d5d22bad114a'
+            - name: FROM_MAIL_ADDRESS
+              value: 'noreply@kredoapp.com'
+            - name: SMTP_AWS_USERNAME
+              value: 'AKIASEGQWP4BCQXTTA5D'
+            - name: SMTP_AWS_PASSWORD
+              value: 'BMWJc0aIPg29e4R3ZmMnJI3PsaK41p3ZDxnmT+g6TdWe'
+            - name: SMTP_AWS_ENDPOINT
+              value: 'email-smtp.us-west-2.amazonaws.com'
+            - name: SMTP_AWS_PORT
+              value: '587'
+            - name: VIMEO_CLIENT_ID
+              value: 'c2b72ad564ce2bb744f3d44a4cc19520456c5758'
+            - name: VIMEO_CLIENT_SECRET
+              value: 'r8dMe7p2hqfiJ5unsowQtdgO2vjs0hMxS+64no1p9IXtAm4o2CBJ7rehVKb8KFqbjgVAZR7CegzRFw5NAm5FVq5Vof1eE4A7SD5a6towwhc5J6gmfOERfvWmdve/t9uG'
+            - name: VIMEO_ACCESS_TOKEN
+              value: '497cc28f817efd0797bc54af522e6852'

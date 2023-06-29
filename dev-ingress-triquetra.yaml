@@ -1,0 +1,121 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: dev-ingress-triquetra
+  namespace: dev-ingress-basic  
+  annotations:  
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/canary-by-header: always
+    nginx.ingress.kubernetes.io/configuration-snippet: >
+      more_set_headers "Origin-Trial:
+      AtbMAYrFDNhYnrpwmpSlS9kklsQyXxXkRR55uO4ab4cvJwzn/zpbsnaqAV0vQScFG7CQQfd5ZhQH/oDszYrTjgsAAAB8eyJvcmlnaW4iOiJodHRwczovL2RldjAyLnRyaXF1ZXRyYS5pbjo0NDMiLCJmZWF0dXJlIjoiVW5yZXN0cmljdGVkU2hhcmVkQXJyYXlCdWZmZXIiLCJleHBpcnkiOjE2Mzk1MjYzOTksImlzU3ViZG9tYWluIjp0cnVlfQ==";
+    nginx.ingress.kubernetes.io/cors-allow-credentials: 'true'
+    nginx.ingress.kubernetes.io/cors-allow-headers: >-
+      bearer-token, content-type, client_id, cache-control, Authorization, client_code
+    nginx.ingress.kubernetes.io/cors-allow-methods: GET, PUT, POST, DELETE, OPTIONS
+    nginx.ingress.kubernetes.io/cors-allow-origin: '*'
+    nginx.ingress.kubernetes.io/enable-cors: 'true'
+    nginx.ingress.kubernetes.io/proxy-body-size: 10m
+    nginx.ingress.kubernetes.io/proxy-buffer-size: 10m
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/websocket-services: dev-coms
+spec:
+  tls:
+    - hosts:
+        - d.trias.in        
+      secretName: aks-ingress-tls-cadev
+  rules:
+    - host: d.trias.in
+      http:
+        paths:
+          - path: /?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: fe-ms-hybrid
+                 port: 
+                    number: 80
+          - path: /auth/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-auth
+                 port: 
+                    number: 80
+          - path: /engagement/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-engagement
+                 port: 
+                    number: 80
+          - path: /treatment/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-treatment
+                 port: 
+                    number: 80
+          - path: /labs/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-labs
+                 port: 
+                    number: 80
+          - path: /pharmacy/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-pharmacy
+                 port: 
+                    number: 80
+          - path: /paediatrics/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-paediatrics
+                 port: 
+                    number: 80
+          - path: /comms/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-coms
+                 port: 
+                    number: 80
+          - path: /migrator/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-datamigrator
+                 port: 
+                    number: 80
+          - path: /book/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: trias-telehealth-hybrid
+                 port: 
+                    number: 80
+          - path: /telemedicine/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: fe-communications
+                 port: 
+                    number: 80
+          - path: /lisb/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: dev-lis-be
+                 port: 
+                    number: 80
+          - path: /lis/?(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                 name: project-genesis-frontend
+                 port: 
+                    number: 80

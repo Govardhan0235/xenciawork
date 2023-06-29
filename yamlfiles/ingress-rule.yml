@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: waycool2o-ingress
+  namespace: waycool2-o
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+  labels:
+    name: waycool2o-ingress
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+      - test-api-wcrevamp-client.censanext.com
+    secretName: waycool2.o-secret
+  rules:
+  - host: test-api-wcrevamp-client.censanext.com
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: backend
+              port:
+                number: 3096

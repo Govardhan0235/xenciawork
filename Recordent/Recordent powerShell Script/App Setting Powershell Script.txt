@@ -1,0 +1,22 @@
+$webAppName = “GGGRbackupweb”
+$resourceGroupName = “GGGRbackup”
+
+$webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $webAppName
+
+$appSettings = $webApp.SiteConfig.AppSettings
+
+$newAppSettings = @{”newSetting05"=”newValue05"}
+ForEach ($item in $appSettings) {
+$newAppSettings[$item.Name] = $item.Value
+}
+
+echo "$newAppSettings"
+
+#$newAppSettings.WEBSITE_NODE_DEFAULT_VERSION = “6.9”
+#$newAppSettings[‘newAppSetting01’] = “newSettingValue01”
+#$newAppSettings[‘newAppSetting02’] = “newSettingValue”
+#$newAppSettings[‘newAppSetting03’] = “newSettingValue03”
+
+
+Set-AzWebApp -AppSettings $newAppSettings -Name $webAppName -ResourceGroupName $resourceGroupName
+

@@ -1,0 +1,17 @@
+ . "/home/vsts/work/1/s/Terraform Script/Powershell/Variables1.ps1"
+ 
+
+ 
+
+   # This returns an array of keys for your storage account. Be sure to select the appropriate key. Here we select the first key as a default.
+   $storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName $storageAccountRg -Name $storageAccountName
+   $context = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey[0].Value
+
+   $sasUrl = New-AzStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
+
+   #BACKEND Details
+   Restore-AzWebAppBackup -ResourceGroupName $D_BackendresourceGroupName -Name $D_BackendappserviceName  -StorageAccountUrl $sasUrl -BlobName $blobName  -Overwrite  -debug 
+
+
+   #Buyerapp Details
+   Restore-AzWebAppBackup -ResourceGroupName $D_BuyerappresourceGroupName -Name $D_BuyerappappserviceName  -StorageAccountUrl $sasUrl -BlobName $blobName  -Overwrite  -debug 

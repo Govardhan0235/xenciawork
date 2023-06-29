@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-service
+spec:
+  selector:
+    app: userservice
+  ports:
+  - port: 9000
+  type: ClusterIP
